@@ -92,14 +92,22 @@ function Betekintes() {
 
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pt-24 md:pt-32 pb-12">
-        <span className="text-xs uppercase tracking-[0.3em] text-primary">Betekintés</span>
-        <h1 className="mt-4 font-display text-5xl md:text-7xl text-foreground leading-[1.05] max-w-3xl">
-          Gondolatok<br /><em className="not-italic text-primary">légzésről, csendről, gyógyulásról</em>
-        </h1>
-        <p className="mt-8 max-w-2xl text-muted-foreground leading-relaxed text-lg">
-          Rövid írások a mindennapi témáimról — stresszoldás, légzésterápia, coaching, kiégés, anyai és apai sebek. Olvasd, ami most rezonál benned.
-        </p>
+      <section className="relative overflow-hidden">
+        <img
+          src={heroStars}
+          alt="Csillagos ég — légzésterápia, belső utazás"
+          className="absolute inset-0 w-full h-full object-cover opacity-80"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/40 to-background" />
+        <div className="relative mx-auto max-w-6xl px-6 pt-32 pb-24 md:pt-40 md:pb-32">
+          <span className="text-xs uppercase tracking-[0.3em] text-primary">Betekintés</span>
+          <h1 className="mt-4 font-display text-5xl md:text-7xl text-foreground leading-[1.05] max-w-3xl drop-shadow-sm">
+            Gondolatok<br /><em className="not-italic text-primary">légzésről, csendről, gyógyulásról</em>
+          </h1>
+          <p className="mt-8 max-w-2xl text-foreground/80 leading-relaxed text-lg">
+            Rövid írások a mindennapi témáimról — stresszoldás, légzésterápia, coaching, kiégés, anyai és apai sebek. Olvasd, ami most rezonál benned.
+          </p>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6">
