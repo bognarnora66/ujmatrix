@@ -9,8 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RolamRouteImport } from './routes/rolam'
+import { Route as KapcsolatRouteImport } from './routes/kapcsolat'
+import { Route as BetekintesRouteImport } from './routes/betekintes'
 import { Route as IndexRouteImport } from './routes/index'
 
+const RolamRoute = RolamRouteImport.update({
+  id: '/rolam',
+  path: '/rolam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KapcsolatRoute = KapcsolatRouteImport.update({
+  id: '/kapcsolat',
+  path: '/kapcsolat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BetekintesRoute = BetekintesRouteImport.update({
+  id: '/betekintes',
+  path: '/betekintes',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +37,61 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/betekintes': typeof BetekintesRoute
+  '/kapcsolat': typeof KapcsolatRoute
+  '/rolam': typeof RolamRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/betekintes': typeof BetekintesRoute
+  '/kapcsolat': typeof KapcsolatRoute
+  '/rolam': typeof RolamRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/betekintes': typeof BetekintesRoute
+  '/kapcsolat': typeof KapcsolatRoute
+  '/rolam': typeof RolamRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/betekintes' | '/kapcsolat' | '/rolam'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/betekintes' | '/kapcsolat' | '/rolam'
+  id: '__root__' | '/' | '/betekintes' | '/kapcsolat' | '/rolam'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BetekintesRoute: typeof BetekintesRoute
+  KapcsolatRoute: typeof KapcsolatRoute
+  RolamRoute: typeof RolamRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/rolam': {
+      id: '/rolam'
+      path: '/rolam'
+      fullPath: '/rolam'
+      preLoaderRoute: typeof RolamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kapcsolat': {
+      id: '/kapcsolat'
+      path: '/kapcsolat'
+      fullPath: '/kapcsolat'
+      preLoaderRoute: typeof KapcsolatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/betekintes': {
+      id: '/betekintes'
+      path: '/betekintes'
+      fullPath: '/betekintes'
+      preLoaderRoute: typeof BetekintesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,6 +104,9 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BetekintesRoute: BetekintesRoute,
+  KapcsolatRoute: KapcsolatRoute,
+  RolamRoute: RolamRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
