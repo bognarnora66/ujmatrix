@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import portraitImg from "@/assets/portrait.jpg";
+import portraitImg from "@/assets/site/content3.jpg";
+import doorwayImg from "@/assets/site/content1.jpg";
 import { RESERVIO_URL } from "@/components/Layout";
 import { ArrowRight } from "lucide-react";
 
