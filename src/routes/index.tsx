@@ -97,7 +97,7 @@ function Index() {
       <section className="relative overflow-hidden bg-secondary/40">
         <div className="mx-auto max-w-6xl px-6 py-24 md:py-32 grid md:grid-cols-2 gap-16 items-center">
           <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
-            <img src={portraitImg} alt="Légzésterápia" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
+            <img src={letGoImg} alt="Elengedés — papírhajó a víz tükrén" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
           </div>
           <div>
             <span className="text-xs uppercase tracking-[0.3em] text-primary">A módszer</span>
@@ -111,6 +111,31 @@ function Index() {
               Olvass bele <ArrowRight size={16} />
             </Link>
           </div>
+        </div>
+      </section>
+
+      {/* VIDEO */}
+      <section className="mx-auto max-w-5xl px-6 py-24 md:py-32">
+        <div className="text-center mb-12">
+          <span className="text-xs uppercase tracking-[0.3em] text-primary inline-flex items-center gap-2">
+            <PlayCircle size={14} /> Videó
+          </span>
+          <h2 className="mt-4 font-display text-4xl md:text-5xl text-foreground">
+            Nézz be egy pillanatra
+          </h2>
+          <p className="mt-4 text-muted-foreground max-w-xl mx-auto">
+            Egy rövid betekintés a munkámba és az Új Mátrix szemléletébe.
+          </p>
+        </div>
+        <div className="relative aspect-video rounded-3xl overflow-hidden border border-border/60 shadow-2xl">
+          <iframe
+            src="https://www.youtube.com/embed/zqt3E8OLfTI"
+            title="ÚjMátrix — Bognár Eleonóra"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            loading="lazy"
+            className="absolute inset-0 w-full h-full"
+          />
         </div>
       </section>
     </>
