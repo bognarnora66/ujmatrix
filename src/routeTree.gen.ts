@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RolamRouteImport } from './routes/rolam'
+import { Route as MediaRouteImport } from './routes/media'
 import { Route as KapcsolatRouteImport } from './routes/kapcsolat'
 import { Route as BetekintesRouteImport } from './routes/betekintes'
 import { Route as IndexRouteImport } from './routes/index'
@@ -17,6 +18,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const RolamRoute = RolamRouteImport.update({
   id: '/rolam',
   path: '/rolam',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MediaRoute = MediaRouteImport.update({
+  id: '/media',
+  path: '/media',
   getParentRoute: () => rootRouteImport,
 } as any)
 const KapcsolatRoute = KapcsolatRouteImport.update({
@@ -39,12 +45,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/betekintes': typeof BetekintesRoute
   '/kapcsolat': typeof KapcsolatRoute
+  '/media': typeof MediaRoute
   '/rolam': typeof RolamRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/betekintes': typeof BetekintesRoute
   '/kapcsolat': typeof KapcsolatRoute
+  '/media': typeof MediaRoute
   '/rolam': typeof RolamRoute
 }
 export interface FileRoutesById {
@@ -52,20 +60,22 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/betekintes': typeof BetekintesRoute
   '/kapcsolat': typeof KapcsolatRoute
+  '/media': typeof MediaRoute
   '/rolam': typeof RolamRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/betekintes' | '/kapcsolat' | '/rolam'
+  fullPaths: '/' | '/betekintes' | '/kapcsolat' | '/media' | '/rolam'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/betekintes' | '/kapcsolat' | '/rolam'
-  id: '__root__' | '/' | '/betekintes' | '/kapcsolat' | '/rolam'
+  to: '/' | '/betekintes' | '/kapcsolat' | '/media' | '/rolam'
+  id: '__root__' | '/' | '/betekintes' | '/kapcsolat' | '/media' | '/rolam'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   BetekintesRoute: typeof BetekintesRoute
   KapcsolatRoute: typeof KapcsolatRoute
+  MediaRoute: typeof MediaRoute
   RolamRoute: typeof RolamRoute
 }
 
@@ -76,6 +86,13 @@ declare module '@tanstack/react-router' {
       path: '/rolam'
       fullPath: '/rolam'
       preLoaderRoute: typeof RolamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/media': {
+      id: '/media'
+      path: '/media'
+      fullPath: '/media'
+      preLoaderRoute: typeof MediaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/kapcsolat': {
@@ -106,6 +123,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   BetekintesRoute: BetekintesRoute,
   KapcsolatRoute: KapcsolatRoute,
+  MediaRoute: MediaRoute,
   RolamRoute: RolamRoute,
 }
 export const routeTree = rootRouteImport
