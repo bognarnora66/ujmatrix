@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import portraitImg from "@/assets/portrait.jpg";
+import portraitImg from "@/assets/site/content3.jpg";
+import doorwayImg from "@/assets/site/content1.jpg";
 import { RESERVIO_URL } from "@/components/Layout";
 import { ArrowRight } from "lucide-react";
 
@@ -63,6 +64,20 @@ function Rolam() {
             <Link to="/kapcsolat" className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-7 py-3.5 hover:bg-foreground/5 transition">
               Írj nekem
             </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="relative">
+        <div className="mx-auto max-w-6xl px-6 pb-24">
+          <div className="relative aspect-[21/9] rounded-3xl overflow-hidden">
+            <img src={doorwayImg} alt="Átjáró az Új Mátrixba" loading="lazy" className="w-full h-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/20 to-transparent" />
+            <div className="absolute bottom-0 left-0 p-8 md:p-12">
+              <p className="font-display text-3xl md:text-4xl text-white max-w-md leading-tight drop-shadow-lg">
+                Egy ajtón mindig át lehet menni — ha mered.
+              </p>
+            </div>
           </div>
         </div>
       </section>
