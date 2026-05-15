@@ -8,6 +8,7 @@ const nav = [
   { to: "/", label: "Főoldal" },
   { to: "/rolam", label: "Rólam" },
   { to: "/betekintes", label: "Betekintés" },
+  { to: "/media", label: "Média" },
   { to: "/kapcsolat", label: "Kapcsolat" },
 ] as const;
 
