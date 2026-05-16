@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Facebook, Instagram, Phone } from "lucide-react";
 import { RESERVIO_URL } from "@/components/Layout";
+import mediaHero from "@/assets/site/media-hero.png";
 
 export const Route = createFileRoute("/media")({
   head: () => ({
@@ -22,14 +23,22 @@ const videos = [
 function Media() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pt-24 md:pt-32 pb-12">
-        <span className="text-xs uppercase tracking-[0.3em] text-primary">Média</span>
-        <h1 className="mt-4 font-display text-5xl md:text-7xl text-foreground leading-[1.05] max-w-3xl">
-          Videók és<br /><em className="not-italic text-primary">hanganyagok</em>
-        </h1>
-        <p className="mt-8 max-w-2xl text-muted-foreground leading-relaxed text-lg">
-          Foglalj időpontot egy rövid beszélgetésre, és nézzük meg, hogyan tudok segíteni.
-        </p>
+      <section className="relative overflow-hidden">
+        <img
+          src={mediaHero}
+          alt="Média képernyők kollázs"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
+        <div className="relative mx-auto max-w-6xl px-6 pt-28 pb-20 md:pt-36 md:pb-28">
+          <span className="text-xs uppercase tracking-[0.3em] text-primary">Média</span>
+          <h1 className="mt-4 font-display text-5xl md:text-7xl text-foreground leading-[1.05] max-w-3xl drop-shadow-sm">
+            Videók és<br /><em className="not-italic text-primary">hanganyagok</em>
+          </h1>
+          <p className="mt-8 max-w-2xl text-foreground/85 leading-relaxed text-lg">
+            Foglalj időpontot egy rövid beszélgetésre, és nézzük meg, hogyan tudok segíteni.
+          </p>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-12">

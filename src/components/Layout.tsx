@@ -1,6 +1,7 @@
 import { Link, Outlet } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import logo from "@/assets/site/logo.png";
 
 const RESERVIO_URL = "https://www.reservio.com/";
 
@@ -9,6 +10,7 @@ const nav = [
   { to: "/rolam", label: "Rólam" },
   { to: "/betekintes", label: "Betekintés" },
   { to: "/media", label: "Média" },
+  { to: "/ajandekutalvanyok", label: "Ajándékutalványok" },
   { to: "/kapcsolat", label: "Kapcsolat" },
 ] as const;
 
@@ -16,11 +18,19 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
-      <div className="mx-auto max-w-6xl px-6 h-20 flex items-center justify-between">
-        <Link to="/" className="font-display text-2xl tracking-tight text-foreground">
-          Új<span className="text-primary">Mátrix</span>
+      <div className="mx-auto max-w-6xl px-6 h-20 flex items-center justify-between gap-4">
+        <Link to="/" className="flex items-center gap-3 shrink-0">
+          <img src={logo} alt="ÚjMátrix logo" width={40} height={40} className="w-9 h-9 md:w-10 md:h-10 object-contain" />
+          <span className="flex flex-col leading-tight">
+            <span className="font-display text-xl md:text-2xl tracking-tight text-foreground">
+              Új<span className="text-primary">Mátrix</span>
+            </span>
+            <span className="hidden sm:block text-[10px] md:text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
+              Bognár Eleonóra · +36 30 209 2338
+            </span>
+          </span>
         </Link>
-        <nav className="hidden md:flex items-center gap-10">
+        <nav className="hidden md:flex items-center gap-7 lg:gap-9">
           {nav.map((n) => (
             <Link
               key={n.to}
