@@ -42,16 +42,6 @@ export function Header() {
               {n.label}
             </Link>
           ))}
-            <Link
-              key={n.to}
-              to={n.to}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              activeProps={{ className: "text-foreground font-medium" }}
-              activeOptions={{ exact: true }}
-            >
-              {n.label}
-            </Link>
-          ))}
           <a
             href={RESERVIO_URL}
             target="_blank"
