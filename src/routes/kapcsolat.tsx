@@ -4,6 +4,7 @@ import { z } from "zod";
 import { toast } from "sonner";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { RESERVIO_URL } from "@/components/Layout";
+import cityWoman from "@/assets/site/city-woman.png";
 
 export const Route = createFileRoute("/kapcsolat")({
   head: () => ({
@@ -47,11 +48,19 @@ function Kapcsolat() {
 
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pt-24 md:pt-32 pb-12">
-        <span className="text-xs uppercase tracking-[0.3em] text-primary">Kapcsolat</span>
-        <h1 className="mt-4 font-display text-5xl md:text-7xl text-foreground leading-[1.05] max-w-3xl">
-          Írj nekem<br /><em className="not-italic text-primary">vagy gyere el</em>
-        </h1>
+      <section className="relative overflow-hidden">
+        <img
+          src={cityWoman}
+          alt="Naplemente a város felett"
+          className="absolute inset-0 w-full h-full object-cover opacity-70"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/30 via-background/50 to-background" />
+        <div className="relative mx-auto max-w-6xl px-6 pt-28 pb-20 md:pt-36 md:pb-28">
+          <span className="text-xs uppercase tracking-[0.3em] text-primary drop-shadow">Kapcsolat</span>
+          <h1 className="mt-4 font-display text-5xl md:text-7xl text-foreground leading-[1.05] max-w-3xl drop-shadow-sm">
+            Írj nekem<br /><em className="not-italic text-primary">vagy gyere el</em>
+          </h1>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-24 grid md:grid-cols-5 gap-12">

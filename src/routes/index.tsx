@@ -29,7 +29,7 @@ function Index() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/30 to-background" />
         <div className="relative mx-auto max-w-5xl px-6 pt-28 pb-32 md:pt-40 md:pb-44 text-center">
-          <span className="inline-block text-xs uppercase tracking-[0.3em] text-muted-foreground mb-6">
+          <span className="inline-block text-xs md:text-sm uppercase tracking-[0.32em] font-semibold text-white bg-black/35 backdrop-blur-sm px-5 py-2 rounded-full mb-6 shadow-lg">
             Légzésterápia · Coaching
           </span>
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-foreground leading-[1.05]">
