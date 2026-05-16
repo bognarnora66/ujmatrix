@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Wind, Heart, Compass, PlayCircle } from "lucide-react";
-import heroImg from "@/assets/site/home-hero.jpg";
+import heroImg from "@/assets/site/banner3.jpg";
 import letGoImg from "@/assets/site/content3.jpg";
 import { RESERVIO_URL } from "@/components/Layout";
 
