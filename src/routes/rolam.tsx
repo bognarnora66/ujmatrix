@@ -20,11 +20,19 @@ export const Route = createFileRoute("/rolam")({
 function Rolam() {
   return (
     <>
-      <section className="mx-auto max-w-6xl px-6 pt-24 pb-12 md:pt-32">
-        <span className="text-xs uppercase tracking-[0.3em] text-primary">Rólam</span>
-        <h1 className="mt-4 font-display text-5xl md:text-7xl text-foreground leading-[1.05] max-w-3xl">
-          Bognár Eleonóra<br /><em className="not-italic text-primary">légzésterapeuta</em>
-        </h1>
+      <section className="relative w-full">
+        <div className="relative aspect-[21/9] md:aspect-[21/8] overflow-hidden">
+          <img src={heroImg} alt="ÚjMátrix — légzés és jelenlét" width={1920} height={1080} className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+          <div className="absolute inset-0 flex items-end">
+            <div className="mx-auto max-w-6xl px-6 pb-10 md:pb-16 w-full">
+              <span className="text-xs uppercase tracking-[0.3em] text-primary">Rólam</span>
+              <h1 className="mt-3 font-display text-4xl md:text-6xl lg:text-7xl text-foreground leading-[1.05] max-w-3xl drop-shadow-sm">
+                Bognár Eleonóra<br /><em className="not-italic text-primary">légzésterapeuta</em>
+              </h1>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 pb-24 grid md:grid-cols-5 gap-12 items-start">
