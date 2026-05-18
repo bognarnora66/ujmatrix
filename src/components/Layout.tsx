@@ -2,6 +2,7 @@ import { Link, Outlet } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/site/logo.png";
+import footerBg from "@/assets/site/footer-bg.jpg";
 
 const RESERVIO_URL = "https://www.reservio.com/";
 
