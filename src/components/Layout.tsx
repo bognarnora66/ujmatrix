@@ -2,6 +2,7 @@ import { Link, Outlet } from "@tanstack/react-router";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import logo from "@/assets/site/logo.png";
+import footerBg from "@/assets/site/footer-bg.jpg";
 
 const RESERVIO_URL = "https://www.reservio.com/";
 
@@ -89,34 +90,40 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="mt-32 border-t border-border/60">
+    <footer className="mt-32 border-t border-border/60 relative isolate overflow-hidden text-white">
+      <div
+        className="absolute inset-0 -z-20 bg-cover bg-center"
+        style={{ backgroundImage: `url(${footerBg})` }}
+        aria-hidden="true"
+      />
+      <div className="absolute inset-0 -z-10 bg-black/65" aria-hidden="true" />
       <div className="mx-auto max-w-6xl px-6 py-14 grid gap-10 md:grid-cols-3">
         <div>
-          <div className="font-display text-2xl text-foreground">Új<span className="text-primary">Mátrix</span></div>
-          <p className="mt-3 text-sm text-muted-foreground max-w-xs leading-relaxed">
+          <div className="font-display text-2xl">Új<span className="text-primary">Mátrix</span></div>
+          <p className="mt-3 text-sm text-white/75 max-w-xs leading-relaxed">
             Légzésterápia, coaching és belső csend — visszatalálni önmagadhoz.
           </p>
         </div>
         <div>
-          <div className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Kapcsolat</div>
-          <div className="text-sm text-foreground/80 leading-relaxed">
+          <div className="text-xs uppercase tracking-widest text-white/60 mb-3">Kapcsolat</div>
+          <div className="text-sm text-white/85 leading-relaxed">
             Bognár Eleonóra<br />
             1073 Budapest, Erzsébet körút 58.<br />
             <a href="tel:+36302092338" className="hover:text-primary">+36 30 209 2338</a>
           </div>
         </div>
         <div>
-          <div className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Menü</div>
+          <div className="text-xs uppercase tracking-widest text-white/60 mb-3">Menü</div>
           <ul className="text-sm space-y-2">
             {nav.map((n) => (
               <li key={n.to}>
-                <Link to={n.to} className="text-foreground/80 hover:text-primary">{n.label}</Link>
+                <Link to={n.to} className="text-white/85 hover:text-primary">{n.label}</Link>
               </li>
             ))}
           </ul>
         </div>
       </div>
-      <div className="border-t border-border/60 py-5 text-center text-xs text-muted-foreground">
+      <div className="border-t border-white/15 py-5 text-center text-xs text-white/70">
         © {new Date().getFullYear()} ÚjMátrix · Minden jog fenntartva
       </div>
     </footer>
