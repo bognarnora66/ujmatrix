@@ -123,12 +123,30 @@ export function Footer() {
   );
 }
 
+function MessengerFab() {
+  return (
+    <a
+      href="https://m.me/bognareleonora"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Írj nekünk Messengeren"
+      className="fixed bottom-5 right-5 z-50 inline-flex items-center gap-2 rounded-full bg-[#0084FF] text-white pl-3 pr-4 py-3 shadow-xl hover:scale-105 hover:shadow-2xl transition-all"
+    >
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true">
+        <path d="M12 2C6.5 2 2 6.14 2 11.25c0 2.88 1.43 5.45 3.67 7.14V22l3.36-1.84c.89.25 1.83.39 2.97.39 5.5 0 10-4.14 10-9.3S17.5 2 12 2zm1 12.5l-2.5-2.67-5 2.67 5.5-5.83L13.6 11.3 18.5 8.67 13 14.5z"/>
+      </svg>
+      <span className="hidden sm:inline text-sm font-medium">Messenger</span>
+    </a>
+  );
+}
+
 export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
       <main className="flex-1"><Outlet /></main>
       <Footer />
+      <MessengerFab />
     </div>
   );
 }
