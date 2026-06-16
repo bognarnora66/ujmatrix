@@ -13,6 +13,7 @@ const nav = [
   { to: "/media", label: "Média" },
   { to: "/ajandekutalvanyok", label: "Ajándékutalványok" },
   { to: "/kapcsolat", label: "Kapcsolat" },
+  { to: "/aszf", label: "ÁSZF" },
 ] as const;
 
 export function Header() {

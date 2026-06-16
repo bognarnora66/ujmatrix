@@ -13,6 +13,7 @@ import { Route as RolamRouteImport } from './routes/rolam'
 import { Route as MediaRouteImport } from './routes/media'
 import { Route as KapcsolatRouteImport } from './routes/kapcsolat'
 import { Route as BetekintesRouteImport } from './routes/betekintes'
+import { Route as AszfRouteImport } from './routes/aszf'
 import { Route as AjandekutalvanyokRouteImport } from './routes/ajandekutalvanyok'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -36,6 +37,11 @@ const BetekintesRoute = BetekintesRouteImport.update({
   path: '/betekintes',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AszfRoute = AszfRouteImport.update({
+  id: '/aszf',
+  path: '/aszf',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AjandekutalvanyokRoute = AjandekutalvanyokRouteImport.update({
   id: '/ajandekutalvanyok',
   path: '/ajandekutalvanyok',
@@ -50,6 +56,7 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/ajandekutalvanyok': typeof AjandekutalvanyokRoute
+  '/aszf': typeof AszfRoute
   '/betekintes': typeof BetekintesRoute
   '/kapcsolat': typeof KapcsolatRoute
   '/media': typeof MediaRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/ajandekutalvanyok': typeof AjandekutalvanyokRoute
+  '/aszf': typeof AszfRoute
   '/betekintes': typeof BetekintesRoute
   '/kapcsolat': typeof KapcsolatRoute
   '/media': typeof MediaRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/ajandekutalvanyok': typeof AjandekutalvanyokRoute
+  '/aszf': typeof AszfRoute
   '/betekintes': typeof BetekintesRoute
   '/kapcsolat': typeof KapcsolatRoute
   '/media': typeof MediaRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/ajandekutalvanyok'
+    | '/aszf'
     | '/betekintes'
     | '/kapcsolat'
     | '/media'
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/ajandekutalvanyok'
+    | '/aszf'
     | '/betekintes'
     | '/kapcsolat'
     | '/media'
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/ajandekutalvanyok'
+    | '/aszf'
     | '/betekintes'
     | '/kapcsolat'
     | '/media'
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AjandekutalvanyokRoute: typeof AjandekutalvanyokRoute
+  AszfRoute: typeof AszfRoute
   BetekintesRoute: typeof BetekintesRoute
   KapcsolatRoute: typeof KapcsolatRoute
   MediaRoute: typeof MediaRoute
@@ -138,6 +151,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof BetekintesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/aszf': {
+      id: '/aszf'
+      path: '/aszf'
+      fullPath: '/aszf'
+      preLoaderRoute: typeof AszfRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/ajandekutalvanyok': {
       id: '/ajandekutalvanyok'
       path: '/ajandekutalvanyok'
@@ -158,6 +178,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AjandekutalvanyokRoute: AjandekutalvanyokRoute,
+  AszfRoute: AszfRoute,
   BetekintesRoute: BetekintesRoute,
   KapcsolatRoute: KapcsolatRoute,
   MediaRoute: MediaRoute,
@@ -166,13 +187,3 @@ const rootRouteChildren: RootRouteChildren = {
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
