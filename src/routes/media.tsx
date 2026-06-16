@@ -2,6 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Facebook, Instagram, Phone } from "lucide-react";
 import { RESERVIO_URL } from "@/components/Layout";
 import mediaHero from "@/assets/site/media-hero.png";
+import tiktok1 from "@/assets/site/promo-tiktok-1.mp4.asset.json";
+import tiktok2 from "@/assets/site/promo-tiktok-2.mp4.asset.json";
 
 export const Route = createFileRoute("/media")({
   head: () => ({
@@ -18,6 +20,11 @@ export const Route = createFileRoute("/media")({
 const videos = [
   { id: "3Ccr9Tn-0Ms", title: "Miért gyere el hozzám?" },
   { id: "zqt3E8OLfTI", title: "ÚjMátrix — bemutatkozás" },
+];
+
+const tiktoks = [
+  { src: tiktok1.url, title: "TikTok promó — 2025.10.01" },
+  { src: tiktok2.url, title: "ÚjMátrix promó — TikTok" },
 ];
 
 function Media() {
@@ -56,6 +63,26 @@ function Media() {
                 />
               </div>
               <h2 className="font-display text-2xl text-foreground">{v.title}</h2>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-12">
+        <h2 className="font-display text-3xl md:text-4xl text-foreground mb-8">TikTok videók</h2>
+        <div className="grid sm:grid-cols-2 gap-8 max-w-4xl">
+          {tiktoks.map((v) => (
+            <div key={v.src} className="space-y-4">
+              <div className="relative aspect-[9/16] rounded-3xl overflow-hidden border border-border/60 shadow-xl bg-black">
+                <video
+                  src={v.src}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
+              <h3 className="font-display text-xl text-foreground">{v.title}</h3>
             </div>
           ))}
         </div>
