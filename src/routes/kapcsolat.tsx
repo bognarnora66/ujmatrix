@@ -38,7 +38,7 @@ function Kapcsolat() {
     setSending(true);
     const subject = encodeURIComponent(`Üzenet — ${parsed.data.name}`);
     const body = encodeURIComponent(`${parsed.data.message}\n\n— ${parsed.data.name} (${parsed.data.email})`);
-    window.location.href = `mailto:hello@ujmatrix.hu?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:bognarnora66@gmail.com?subject=${subject}&body=${body}`;
     setTimeout(() => {
       toast.success("Köszönöm! Megnyílt az email küldő — kérlek küldd el az üzenetet.");
       setForm({ name: "", email: "", message: "" });
@@ -80,7 +80,7 @@ function Kapcsolat() {
               </div>
               <div className="flex gap-3">
                 <Mail className="text-primary shrink-0 mt-0.5" size={20} strokeWidth={1.5} />
-                <a href="mailto:hello@ujmatrix.hu" className="text-sm text-foreground/80 hover:text-primary">hello@ujmatrix.hu</a>
+                <a href="mailto:bognarnora66@gmail.com" className="text-sm text-foreground/80 hover:text-primary">bognarnora66@gmail.com</a>
               </div>
             </div>
           </div>
