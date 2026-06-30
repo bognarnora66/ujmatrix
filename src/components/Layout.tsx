@@ -4,7 +4,7 @@ import { Menu, X } from "lucide-react";
 import logo from "@/assets/site/logo.png";
 import footerBg from "@/assets/site/footer-bg.jpg";
 
-const RESERVIO_URL = "https://www.reservio.com/";
+const RESERVIO_URL = "https://ujmatrix.reservio.com/";
 
 const nav = [
   { to: "/", label: "Főoldal" },
