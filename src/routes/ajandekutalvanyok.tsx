@@ -104,7 +104,7 @@ function Page() {
       <section className="mx-auto max-w-4xl px-6 py-20 text-center">
         <h2 className="font-display text-3xl md:text-4xl text-foreground">Hogyan rendelhetsz?</h2>
         <p className="mt-4 text-muted-foreground leading-relaxed">
-          Írj a <a href="mailto:hello@ujmatrix.hu" className="text-primary hover:underline">hello@ujmatrix.hu</a> címre, vagy hívj a <a href="tel:+36302092338" className="text-primary hover:underline">+36 30 209 2338</a> számon. Az utalványt e-mailben vagy nyomtatott formában is elküldöm.
+          Írj a <a href="mailto:bognarnora66@gmail.com" className="text-primary hover:underline">bognarnora66@gmail.com</a> címre, vagy hívj a <a href="tel:+36302092338" className="text-primary hover:underline">+36 30 209 2338</a> számon. Az utalványt e-mailben vagy nyomtatott formában is elküldöm.
         </p>
         <div className="mt-8">
           <a
