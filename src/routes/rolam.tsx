@@ -38,7 +38,7 @@ function Rolam() {
       <section className="mx-auto max-w-6xl px-6 pb-24 grid md:grid-cols-5 gap-12 items-start">
         <div className="md:col-span-2">
           <div className="rounded-3xl overflow-hidden aspect-[4/5] sticky top-28">
-            <img src={portraitImg} alt="Bognár Eleonóra" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
+            <img src={portraitImg.url} alt="Bognár Eleonóra" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="md:col-span-3 space-y-6 text-foreground/85 leading-relaxed text-lg">
