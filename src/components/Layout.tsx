@@ -1,21 +1,30 @@
 import { Link, Outlet } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowUp, Menu, X } from "lucide-react";
+import { ArrowUp, ChevronDown, Menu, X } from "lucide-react";
 import logo from "@/assets/site/logo.png";
 import footerBg from "@/assets/site/footer-bg.jpg";
 
 
 const RESERVIO_URL = "https://ujmatrix.reservio.com/";
 
-const nav = [
+const headerNav: { to: string; label: string; children?: { to: string; label: string }[] }[] = [
   { to: "/", label: "Főoldal" },
   { to: "/rolam", label: "Rólam" },
   { to: "/betekintes", label: "Betekintés" },
   { to: "/media", label: "Média" },
-  { to: "/ajandekutalvanyok", label: "Ajándék & Bérletek" },
+  { to: "/ajandekutalvanyok", label: "Bérletek" },
+  { to: "/kapcsolat", label: "Kapcsolat", children: [{ to: "/aszf", label: "ÁSZF" }] },
+];
+
+const footerNav: { to: string; label: string }[] = [
+  { to: "/", label: "Főoldal" },
+  { to: "/rolam", label: "Rólam" },
+  { to: "/betekintes", label: "Betekintés" },
+  { to: "/media", label: "Média" },
+  { to: "/ajandekutalvanyok", label: "Bérletek" },
   { to: "/kapcsolat", label: "Kapcsolat" },
   { to: "/aszf", label: "ÁSZF" },
-] as const;
+];
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -33,18 +42,47 @@ export function Header() {
             </span>
           </span>
         </Link>
-        <nav className="hidden md:flex items-center gap-7 lg:gap-9">
-          {nav.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              activeProps={{ className: "text-foreground font-medium" }}
-              activeOptions={{ exact: true }}
-            >
-              {n.label}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
+          {headerNav.map((item) =>
+            item.children ? (
+              <div key={item.to} className="relative group">
+                <Link
+                  to={item.to}
+                  className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  activeProps={{ className: "flex items-center gap-1 text-sm text-foreground font-medium transition-colors" }}
+                  activeOptions={{ exact: true }}
+                >
+                  {item.label}
+                  <ChevronDown size={14} className="opacity-70" />
+                </Link>
+                <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity">
+                  <div className="rounded-lg border border-border bg-background shadow-lg py-2 px-1 min-w-[10rem]">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.to}
+                        to={child.to}
+                        className="block px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                        activeProps={{ className: "block px-3 py-2 text-sm text-foreground font-medium bg-accent/50 rounded-md transition-colors" }}
+                        activeOptions={{ exact: true }}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                activeProps={{ className: "text-sm text-foreground font-medium transition-colors" }}
+                activeOptions={{ exact: true }}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
           <a
             href={RESERVIO_URL}
             target="_blank"
@@ -56,24 +94,39 @@ export function Header() {
         </nav>
         <button
           aria-label="Menü"
-          className="md:hidden p-2 text-foreground"
+          className="lg:hidden p-2 text-foreground"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-border/60 bg-background">
+        <div className="lg:hidden border-t border-border/60 bg-background">
           <div className="px-6 py-6 flex flex-col gap-5">
-            {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                onClick={() => setOpen(false)}
-                className="text-foreground text-base"
-              >
-                {n.label}
-              </Link>
+            {headerNav.map((item) => (
+              <div key={item.to}>
+                <Link
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className="text-foreground text-base"
+                >
+                  {item.label}
+                </Link>
+                {item.children && (
+                  <div className="mt-2 pl-4 flex flex-col gap-2 border-l border-border/60">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.to}
+                        to={child.to}
+                        onClick={() => setOpen(false)}
+                        className="text-sm text-muted-foreground"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <a
               href={RESERVIO_URL}
@@ -117,7 +170,7 @@ export function Footer() {
         <div>
           <div className="text-xs uppercase tracking-widest text-white/60 mb-3">Menü</div>
           <ul className="text-sm space-y-2">
-            {nav.map((n) => (
+            {footerNav.map((n) => (
               <li key={n.to}>
                 <Link to={n.to} className="text-white/85 hover:text-primary">{n.label}</Link>
               </li>
