@@ -12,7 +12,7 @@ const nav = [
   { to: "/rolam", label: "Rólam" },
   { to: "/betekintes", label: "Betekintés" },
   { to: "/media", label: "Média" },
-  { to: "/ajandekutalvanyok", label: "Ajándékutalványok" },
+  { to: "/ajandekutalvanyok", label: "Ajándék & Bérletek" },
   { to: "/kapcsolat", label: "Kapcsolat" },
   { to: "/aszf", label: "ÁSZF" },
 ] as const;

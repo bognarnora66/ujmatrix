@@ -10,9 +10,9 @@ import berlet10 from "@/assets/site/berlet-10.png";
 export const Route = createFileRoute("/ajandekutalvanyok")({
   head: () => ({
     meta: [
-      { title: "Ajándékutalványok és bérletek | ÚjMátrix" },
+      { title: "Ajándék & Bérletek | ÚjMátrix" },
       { name: "description", content: "Ajándékozz légzésterápiát, coachingot vagy bérletet szeretteidnek. Bognár Eleonóra ÚjMátrix." },
-      { property: "og:title", content: "Ajándékutalványok és bérletek — ÚjMátrix" },
+      { property: "og:title", content: "Ajándék & Bérletek — ÚjMátrix" },
       { property: "og:description", content: "Ajándékozz egy belső utazást." },
     ],
   }),
