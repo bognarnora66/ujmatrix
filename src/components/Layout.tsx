@@ -170,7 +170,7 @@ export function Footer() {
         <div>
           <div className="text-xs uppercase tracking-widest text-white/60 mb-3">Menü</div>
           <ul className="text-sm space-y-2">
-            {nav.map((n) => (
+            {footerNav.map((n) => (
               <li key={n.to}>
                 <Link to={n.to} className="text-white/85 hover:text-primary">{n.label}</Link>
               </li>
