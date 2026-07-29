@@ -7,16 +7,16 @@ import footerBg from "@/assets/site/footer-bg.jpg";
 
 const RESERVIO_URL = "https://ujmatrix.reservio.com/";
 
-const headerNav = [
+const headerNav: { to: string; label: string; children?: { to: string; label: string }[] }[] = [
   { to: "/", label: "Főoldal" },
   { to: "/rolam", label: "Rólam" },
   { to: "/betekintes", label: "Betekintés" },
   { to: "/media", label: "Média" },
   { to: "/ajandekutalvanyok", label: "Bérletek" },
   { to: "/kapcsolat", label: "Kapcsolat", children: [{ to: "/aszf", label: "ÁSZF" }] },
-] as const;
+];
 
-const footerNav = [
+const footerNav: { to: string; label: string }[] = [
   { to: "/", label: "Főoldal" },
   { to: "/rolam", label: "Rólam" },
   { to: "/betekintes", label: "Betekintés" },
@@ -24,7 +24,7 @@ const footerNav = [
   { to: "/ajandekutalvanyok", label: "Bérletek" },
   { to: "/kapcsolat", label: "Kapcsolat" },
   { to: "/aszf", label: "ÁSZF" },
-] as const;
+];
 
 export function Header() {
   const [open, setOpen] = useState(false);
