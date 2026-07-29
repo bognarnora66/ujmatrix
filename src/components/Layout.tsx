@@ -42,18 +42,47 @@ export function Header() {
             </span>
           </span>
         </Link>
-        <nav className="hidden md:flex items-center gap-7 lg:gap-9">
-          {nav.map((n) => (
-            <Link
-              key={n.to}
-              to={n.to}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-              activeProps={{ className: "text-foreground font-medium" }}
-              activeOptions={{ exact: true }}
-            >
-              {n.label}
-            </Link>
-          ))}
+        <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
+          {headerNav.map((item) =>
+            item.children ? (
+              <div key={item.to} className="relative group">
+                <Link
+                  to={item.to}
+                  className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  activeProps={{ className: "flex items-center gap-1 text-sm text-foreground font-medium transition-colors" }}
+                  activeOptions={{ exact: true }}
+                >
+                  {item.label}
+                  <ChevronDown size={14} className="opacity-70" />
+                </Link>
+                <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible group-focus-within:opacity-100 group-focus-within:visible transition-opacity">
+                  <div className="rounded-lg border border-border bg-background shadow-lg py-2 px-1 min-w-[10rem]">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.to}
+                        to={child.to}
+                        className="block px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-accent rounded-md transition-colors"
+                        activeProps={{ className: "block px-3 py-2 text-sm text-foreground font-medium bg-accent/50 rounded-md transition-colors" }}
+                        activeOptions={{ exact: true }}
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.to}
+                to={item.to}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                activeProps={{ className: "text-sm text-foreground font-medium transition-colors" }}
+                activeOptions={{ exact: true }}
+              >
+                {item.label}
+              </Link>
+            )
+          )}
           <a
             href={RESERVIO_URL}
             target="_blank"
