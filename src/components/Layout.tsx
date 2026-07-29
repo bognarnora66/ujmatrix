@@ -1,8 +1,9 @@
 import { Link, Outlet } from "@tanstack/react-router";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { ArrowUp, Menu, X } from "lucide-react";
 import logo from "@/assets/site/logo.png";
 import footerBg from "@/assets/site/footer-bg.jpg";
+
 
 const RESERVIO_URL = "https://ujmatrix.reservio.com/";
 
@@ -148,6 +149,18 @@ function MessengerFab() {
   );
 }
 
+function ScrollToTop() {
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="Ugrás az oldal tetejére"
+      className="fixed bottom-5 left-5 z-50 inline-flex items-center gap-1.5 rounded-full bg-primary text-primary-foreground px-3 py-2 shadow-lg hover:opacity-90 transition"
+    >
+      <ArrowUp size={16} /> Fel
+    </button>
+  );
+}
+
 export default function Layout() {
   return (
     <div className="min-h-screen flex flex-col">
@@ -155,8 +168,10 @@ export default function Layout() {
       <main className="flex-1"><Outlet /></main>
       <Footer />
       <MessengerFab />
+      <ScrollToTop />
     </div>
   );
 }
+
 
 export { RESERVIO_URL };
