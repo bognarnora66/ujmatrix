@@ -101,17 +101,32 @@ export function Header() {
         </button>
       </div>
       {open && (
-        <div className="md:hidden border-t border-border/60 bg-background">
+        <div className="lg:hidden border-t border-border/60 bg-background">
           <div className="px-6 py-6 flex flex-col gap-5">
-            {nav.map((n) => (
-              <Link
-                key={n.to}
-                to={n.to}
-                onClick={() => setOpen(false)}
-                className="text-foreground text-base"
-              >
-                {n.label}
-              </Link>
+            {headerNav.map((item) => (
+              <div key={item.to}>
+                <Link
+                  to={item.to}
+                  onClick={() => setOpen(false)}
+                  className="text-foreground text-base"
+                >
+                  {item.label}
+                </Link>
+                {item.children && (
+                  <div className="mt-2 pl-4 flex flex-col gap-2 border-l border-border/60">
+                    {item.children.map((child) => (
+                      <Link
+                        key={child.to}
+                        to={child.to}
+                        onClick={() => setOpen(false)}
+                        className="text-sm text-muted-foreground"
+                      >
+                        {child.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
             <a
               href={RESERVIO_URL}
