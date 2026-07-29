@@ -1,6 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
+import { RESERVIO_URL } from "@/components/Layout";
 import heroStars from "@/assets/site/betekintes-hero.png";
+
 
 export const Route = createFileRoute("/betekintes")({
   head: () => ({
@@ -107,7 +109,16 @@ function Betekintes() {
           <p className="mt-8 max-w-2xl text-foreground/80 leading-relaxed text-lg">
             Rövid írások a mindennapi témáimról — stresszoldás, légzésterápia, coaching, kiégés, anyai és apai sebek. Olvasd, ami most rezonál benned.
           </p>
+          <a
+            href={RESERVIO_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-6 py-3 text-sm hover:opacity-90 transition"
+          >
+            Foglalj időpontot
+          </a>
         </div>
+
       </section>
 
       <section className="mx-auto max-w-6xl px-6">
