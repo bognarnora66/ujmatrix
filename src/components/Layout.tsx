@@ -7,12 +7,21 @@ import footerBg from "@/assets/site/footer-bg.jpg";
 
 const RESERVIO_URL = "https://ujmatrix.reservio.com/";
 
-const nav = [
+const headerNav = [
   { to: "/", label: "Főoldal" },
   { to: "/rolam", label: "Rólam" },
   { to: "/betekintes", label: "Betekintés" },
   { to: "/media", label: "Média" },
-  { to: "/ajandekutalvanyok", label: "Ajándék & Bérletek" },
+  { to: "/ajandekutalvanyok", label: "Bérletek" },
+  { to: "/kapcsolat", label: "Kapcsolat", children: [{ to: "/aszf", label: "ÁSZF" }] },
+] as const;
+
+const footerNav = [
+  { to: "/", label: "Főoldal" },
+  { to: "/rolam", label: "Rólam" },
+  { to: "/betekintes", label: "Betekintés" },
+  { to: "/media", label: "Média" },
+  { to: "/ajandekutalvanyok", label: "Bérletek" },
   { to: "/kapcsolat", label: "Kapcsolat" },
   { to: "/aszf", label: "ÁSZF" },
 ] as const;
