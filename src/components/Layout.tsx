@@ -94,7 +94,7 @@ export function Header() {
         </nav>
         <button
           aria-label="Menü"
-          className="md:hidden p-2 text-foreground"
+          className="lg:hidden p-2 text-foreground"
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={22} /> : <Menu size={22} />}
