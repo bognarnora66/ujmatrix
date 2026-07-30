@@ -46,10 +46,10 @@ function Rolam() {
             Régóta foglalkozom légzésterápiával. A <strong className="text-foreground">Transzperszonális Pszichológia és Légzés Intézetében</strong> végeztem, ahol az integrálpszichológia alapjait sajátítottam el.
           </p>
           <p>
-            Munkám középpontjában a <em>transzlégzés</em> áll — egy olyan módszer, amellyel elérhető a módosult tudatállapot, és lehetőség nyílik a magzati vagy gyermekkori traumák feldolgozására.
+            Munkám középpontjában a <em>transzlégzés</em> áll — egy olyan módszer, amellyel elérhető a módosult tudatállapot, és lehetőség nyílik a magzati, gyermekkori és egyéb traumák feldolgozására.
           </p>
           <p>
-            Hiszem, hogy a tested mindent tud rólad. Csak az kell, hogy egy biztonságos térben végre meghallgasd. Ebben szeretnék melletted lenni.
+            Hiszem, hogy a Légzés általi tudatállapot mindent tud rólad. Csak az kell, hogy egy biztonságos térben végre meghalld. Ebben szeretnék melletted lenni.
           </p>
 
           <div className="pt-8 grid sm:grid-cols-2 gap-4">
