@@ -8,7 +8,7 @@ export const Route = createFileRoute("/betekintes")({
   head: () => ({
     meta: [
       { title: "Betekintés — Gondolatok légzésről, stresszről, gyógyulásról | ÚjMátrix" },
-      { name: "description", content: "Rövid írások stresszoldásról, légzésterápiáról, coachingról, kiégésről, anyai és apai sebek feldolgozásáról." },
+      { name: "description", content: "Rövid írások stresszoldásról, szorongásról, önértékelésről, légzésterápiáról, coachingról, kiégésről, anyai és apai sebek feldolgozásáról." },
       { property: "og:title", content: "Betekintés — ÚjMátrix" },
       { property: "og:description", content: "Gondolatok légzésről, stresszről és gyógyulásról." },
     ],
