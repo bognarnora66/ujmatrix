@@ -84,7 +84,7 @@ function Rolam() {
             <div className="absolute inset-0 bg-gradient-to-t from-background/70 via-background/20 to-transparent" />
             <div className="absolute bottom-0 left-0 p-8 md:p-12">
               <p className="font-display text-3xl md:text-4xl text-white max-w-md leading-tight drop-shadow-lg">
-                Egy ajtón mindig át lehet menni — ha mered.
+                Egy ajtón mindig át lehet menni, ha kinyitod.
               </p>
             </div>
           </div>
