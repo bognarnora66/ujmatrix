@@ -8,7 +8,7 @@ export const Route = createFileRoute("/betekintes")({
   head: () => ({
     meta: [
       { title: "Betekintés — Gondolatok légzésről, stresszről, gyógyulásról | ÚjMátrix" },
-      { name: "description", content: "Rövid írások stresszoldásról, légzésterápiáról, coachingról, kiégésről, anyai és apai sebek feldolgozásáról." },
+      { name: "description", content: "Rövid írások stresszoldásról, szorongásról, önértékelésről, légzésterápiáról, coachingról, kiégésről, anyai és apai sebek feldolgozásáról." },
       { property: "og:title", content: "Betekintés — ÚjMátrix" },
       { property: "og:description", content: "Gondolatok légzésről, stresszről és gyógyulásról." },
     ],
@@ -79,11 +79,35 @@ const topics: Topic[] = [
     id: "apa",
     label: "Apai sebek",
     posts: [
-      { title: "Apukád ott volt, de érzelmileg nem?", body: "A jelenlét nem csak testből áll. Sok apa dolgozott, eltartotta a családot — de a melegség, a „büszke vagyok rád”, az ölelés elmaradt. Ez a hiány ugyanúgy nyomot hagy, mint a nyílt elhanyagolás. Meg lehet gyógyítani.", tags: ["apai seb", "érzelmi elhanyagolás", "gyógyulás"] },
-      { title: "Mindig az apád elismerését keresed?", body: "Ha gyerekként nem kaptad meg apádtól a „jól csináltad” érzést, felnőttként is keresni fogod. Emberekben, sikerekben, munkában. A légzésterápiában visszamegyünk a forráshoz — és végre betöltjük azt az űrt.", tags: ["apai elismerés", "önbizalom", "légzésterápia"] },
+      { title: "Apukád ott volt, de érzelmileg nem?", body: "A jelenlét nem csak testből áll. Sok apa dolgozott, eltartotta a családot — de a melegség, a 'büszke vagyok rád', az ölelés elmaradt. Ez a hiány ugyanúgy nyomot hagy, mint a nyílt elhanyagolás. Meg lehet gyógyítani.", tags: ["apai seb", "érzelmi elhanyagolás", "gyógyulás"] },
+      { title: "Mindig az apád elismerését keresed?", body: "Ha gyerekként nem kaptad meg apádtól a 'jól csináltad' érzést, felnőttként is keresni fogod. Emberekben, sikerekben, munkában. A légzésterápiában visszamegyünk a forráshoz — és végre betöltjük azt az űrt.", tags: ["apai elismerés", "önbizalom", "légzésterápia"] },
       { title: "Apád indulatos volt — most te is félsz?", body: "Amit gyerekként láttunk, mintává válik. Vagy követjük, vagy annyira félünk tőle, hogy teljesen elfojtjuk az érzelmeinket. Egyik sem egészséges. A coachingban megtanulod az egészséges közepet.", tags: ["indulat", "apai minta", "önismeret"] },
-      { title: "Apád elment — azóta nehéz bízni?", body: "Az elhagyás — akár halál, akár válás, akár csak érzelmi távolodás — mély sebet hagy. „Ha ő is elment, mindenki elmegy.” Ez a hiedelem irányítja a kapcsolataidat, amíg nem nézünk rá együtt.", tags: ["elhagyásfélelem", "bizalmatlanság", "párkapcsolat"] },
+      { title: "Apád elment — azóta nehéz bízni?", body: "Az elhagyás — akár halál, akár válás, akár csak érzelmi távolodás — mély sebet hagy. 'Ha ő is elment, mindenki elmegy.' Ez a hiedelem irányítja a kapcsolataidat, amíg nem nézünk rá együtt.", tags: ["elhagyásfélelem", "bizalmatlanság", "párkapcsolat"] },
       { title: "Sosem mondta, hogy szeret — most te se tudod?", body: "A szeretet kifejezése tanult viselkedés. Ha nem láttad, nem kaptad — nehéz adni. De ez nem végzet. A minta felismerhető, és megváltoztatható. Ott tudok lenni ebben az úton.", tags: ["szeretet", "apai seb", "coaching"] },
+    ],
+  },
+  {
+    id: "szorongas",
+    label: "Szorongás",
+    posts: [
+      { title: "Folyton azon agyalsz, mi történhet rosszul?", body: "A szorongás gyakran a jövő feletti kontroll illúziójából táplálkozik. Megtanulhatod, hogyan nyugtasd meg a gondolataidat. A légzéstechnika segítségével visszajutsz a jelenbe.", tags: ["szorongás", "légzésterápia", "mentálisegészség"] },
+      { title: "Szorít a mellkasod, mikor stresszhelyzetbe kerülsz?", body: "Ez nem 'csak a fejedben van' — a tested fiziológiailag reagál a fenyegetésre, akkor is, ha az nem valódi veszély. Légzéssel megtanulod felismerni ezeket a jeleket, és időben közbelépni.", tags: ["szorongásoldás", "testtudatosság", "légzésterápia"] },
+      { title: "Mielőtt bármi történne, már a legrosszabbra számítasz?", body: "A szorongás kimerítő, és valóban nem véd meg semmitől. Együtt feltérképezzük, honnan származik ez a mintázat, és hogyan építhetsz belső biztonságot.", tags: ["aggodalom", "önismeret", "mentálisegészség"] },
+      { title: "Társaságban mindig azon járatod az agyad, mit gondolnak rólad?", body: "A szociális szorongás sokszor láthatatlan, mégis kimerítő terhet jelent. Megtanulhatod, hogyan engedd el az állandó megfelelési kényszert, és legyél jelen önmagad számára.", tags: ["légzés", "önbizalom", "coaching"] },
+      { title: "Éjszaka nem hagy aludni a sok 'mi lenne, ha'?", body: "A szorongó gondolatok különösen akkor erősödnek fel, amikor nincs mivel elterelni a figyelmed. Légzéstechnikával megtanulhatod kikapcsolni ezt a kört.", tags: ["alvászavar", "légzésterápia", "szorongás"] },
+      { title: "Úgy érzed, a tested állandó készültségben van?", body: "A krónikus szorongás a testedben nyomot hagy: feszültség, gyors szívverés, nyugtalanság. Légzés során megtanulod, hogyan vezeted vissza szervezeted a nyugalmi állapotba.", tags: ["nyugtalanság", "légzésterápia", "stresszkezelés"] },
+    ],
+  },
+  {
+    id: "onertekeles",
+    label: "Önértékelés",
+    posts: [
+      { title: "Folyton másokhoz hasonlítod magad?", body: "Az összehasonlítás csapdájában könnyű elveszíteni a saját értéked érzését. Megtanulhatod, hogyan találd meg újra a belső mércédet, ami nem mások teljesítményétől függ.", tags: ["önértékelés", "önismeret", "coaching"] },
+      { title: "Nehezen fogadod el a dicséretet?", body: "Ha ösztönösen elhárítod a pozitív visszajelzéseket, az gyakran mélyebb önértékelési sebekre utal. Együtt dolgozunk azon, hogy valóban befogadhasd, amit megérdemelsz.", tags: ["önbecsülés", "önismeret", "mentálisegészség"] },
+      { title: "Folyton bocsánatot kérsz olyasmiért, amiért nem kellene?", body: "A túlzott bocsánatkérés sokszor abból fakad, hogy nem érzed méltónak magad a saját helyedre. Megtanulhatod, hogyan állj ki magadért szégyenkezés nélkül.", tags: ["önérvényesítés", "határok", "coaching"] },
+      { title: "Úgy érzed, mindig többet kell teljesíts, hogy elég legyél?", body: "Az állandó bizonyítási kényszer mögött gyakran az áll, hogy az értékedet a teljesítményhez kötöd. Megmutatom, hogyan alakítsd ki a valódi önbecsülésedet, ami nem dől össze egy hibától.", tags: ["teljesítménykényszer", "önértékelés", "burnout"] },
+      { title: "Nehezen mondasz nemet, mert félsz, hogy csalódást okozol?", body: "Ha a mások tetszésére törekszel a saját igényeid rovására, az hosszú távon kiüresít. Megtanulhatod kimondani, amire szükséged van, anélkül hogy bűntudatod legyen.", tags: ["határok", "önértékelés", "önmagadért"] },
+      { title: "Folyton másokhoz méred magad, és mindig alulmaradsz?", body: "A közösségi média és a külvilág elvárásai miatt könnyű abba a csapdába esni, hogy a saját életedet mások 'kirakatához' hasonlítod. Ez a folyamatos összehasonlítgatás lassan felemészti az önbecsülésedet. A coaching során megtanuljuk áthelyezni a fókuszt a külső elvárásokról a saját, egyedi értékeidre.", tags: ["önbecsülés", "összehasonlítás", "coaching"] },
     ],
   },
 ];
