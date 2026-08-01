@@ -92,7 +92,7 @@ function Kapcsolat() {
             className="block rounded-3xl bg-primary text-primary-foreground p-8 hover:opacity-95 transition"
           >
             <div className="text-xs uppercase tracking-widest opacity-70 mb-2">Foglalás</div>
-            <div className="font-display text-2xl">Időpontfoglalás Reservión →</div>
+            <div className="font-display text-2xl">Időpontfoglalás Reservio-n →</div>
           </a>
         </aside>
 
