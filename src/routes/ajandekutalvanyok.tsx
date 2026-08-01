@@ -68,7 +68,7 @@ function Page() {
           <h2 className="mt-4 font-display text-4xl md:text-5xl text-foreground">Ajándékutalványok</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          {utalvanyok.map(({ src, title, desc }) => (
+          {utalvanyok.map(({ src, title, desc, price }) => (
             <div key={title} className="rounded-3xl bg-card border border-border/60 overflow-hidden hover:border-primary/40 transition-colors">
               <div className="aspect-[3/2] overflow-hidden bg-black">
                 <img src={src} alt={title} loading="lazy" className="w-full h-full object-cover" />
@@ -76,11 +76,28 @@ function Page() {
               <div className="p-6">
                 <h3 className="font-display text-xl text-foreground">{title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                <p className="mt-4 font-display text-2xl text-primary">{price}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
+
+      {/* SZOLGÁLTATÁSOK ÁRAI */}
+      <section className="mx-auto max-w-3xl px-6 pb-8">
+        <div className="rounded-3xl bg-card border border-border/60 p-6 md:p-8">
+          <h3 className="font-display text-2xl text-foreground text-center">Alkalmankénti árak</h3>
+          <ul className="mt-6 divide-y divide-border/60">
+            {szolgaltatasok.map(({ title, price }) => (
+              <li key={title} className="flex items-center justify-between gap-4 py-3">
+                <span className="text-foreground">{title}</span>
+                <span className="font-display text-lg text-primary whitespace-nowrap">{price}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
 
       {/* BÉRLETEK */}
       <section className="bg-secondary/40">
