@@ -91,7 +91,7 @@ function Page() {
             {szolgaltatasok.map(({ title, price }) => (
               <li key={title} className="flex items-center justify-between gap-4 py-3">
                 <span className="text-foreground">{title}</span>
-                <span className="font-display text-lg text-primary whitespace-nowrap">{price}</span>
+                <span className="font-display text-2xl text-primary whitespace-nowrap">{price}</span>
               </li>
             ))}
           </ul>
