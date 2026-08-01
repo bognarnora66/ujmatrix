@@ -20,14 +20,19 @@ export const Route = createFileRoute("/ajandekutalvanyok")({
 });
 
 const utalvanyok = [
-  { src: utalvany1, title: "1 alkalmas ajándékutalvány", desc: "Egy alkalom légzésterápia vagy coaching." },
-  { src: utalvany5, title: "5 alkalmas ajándékutalvány", desc: "Mélyebb folyamathoz, kedvezményes csomagban." },
-  { src: utalvany10, title: "10 alkalmas ajándékutalvány", desc: "Komoly belső munkára, tartós változásra." },
+  { src: utalvany1, title: "1 alkalmas ajándékutalvány", desc: "Egy alkalom légzésterápia vagy coaching.", price: "20 000 Ft" },
+  { src: utalvany5, title: "5 alkalmas ajándékutalvány", desc: "Mélyebb folyamathoz, kedvezményes csomagban.", price: "100 000 Ft" },
+  { src: utalvany10, title: "10 alkalmas ajándékutalvány", desc: "Komoly belső munkára, tartós változásra.", price: "180 000 Ft" },
 ];
 
 const berletek = [
-  { src: berlet5, title: "5 alkalmas bérlet", desc: "Saját magadnak — öt alkalom, kedvezménnyel." },
-  { src: berlet10, title: "10 alkalmas bérlet", desc: "Hosszabb folyamathoz, a legkedvezőbb áron." },
+  { src: berlet5, title: "5 alkalmas bérlet", desc: "Saját magadnak — öt alkalom, kedvezménnyel.", price: "90 000 Ft" },
+  { src: berlet10, title: "10 alkalmas bérlet", desc: "Hosszabb folyamathoz, a legkedvezőbb áron.", price: "180 000 Ft" },
+];
+
+const szolgaltatasok = [
+  { title: "Légzésterápia (transzlégzés)", price: "20 000 Ft" },
+  { title: "Coaching", price: "20 000 Ft" },
 ];
 
 function Page() {
@@ -63,7 +68,7 @@ function Page() {
           <h2 className="mt-4 font-display text-4xl md:text-5xl text-foreground">Ajándékutalványok</h2>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          {utalvanyok.map(({ src, title, desc }) => (
+          {utalvanyok.map(({ src, title, desc, price }) => (
             <div key={title} className="rounded-3xl bg-card border border-border/60 overflow-hidden hover:border-primary/40 transition-colors">
               <div className="aspect-[3/2] overflow-hidden bg-black">
                 <img src={src} alt={title} loading="lazy" className="w-full h-full object-cover" />
@@ -71,11 +76,28 @@ function Page() {
               <div className="p-6">
                 <h3 className="font-display text-xl text-foreground">{title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                <p className="mt-4 font-display text-2xl text-primary">{price}</p>
               </div>
             </div>
           ))}
         </div>
       </section>
+
+      {/* SZOLGÁLTATÁSOK ÁRAI */}
+      <section className="mx-auto max-w-3xl px-6 pb-8">
+        <div className="rounded-3xl bg-card border border-border/60 p-6 md:p-8">
+          <h3 className="font-display text-2xl text-foreground text-center">Alkalmankénti árak</h3>
+          <ul className="mt-6 divide-y divide-border/60">
+            {szolgaltatasok.map(({ title, price }) => (
+              <li key={title} className="flex items-center justify-between gap-4 py-3">
+                <span className="text-foreground">{title}</span>
+                <span className="font-display text-lg text-primary whitespace-nowrap">{price}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
 
       {/* BÉRLETEK */}
       <section className="bg-secondary/40">
@@ -85,7 +107,7 @@ function Page() {
             <h2 className="mt-4 font-display text-4xl md:text-5xl text-foreground">Bérletek</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {berletek.map(({ src, title, desc }) => (
+            {berletek.map(({ src, title, desc, price }) => (
               <div key={title} className="rounded-3xl bg-card border border-border/60 overflow-hidden hover:border-primary/40 transition-colors">
                 <div className="aspect-[3/2] overflow-hidden">
                   <img src={src} alt={title} loading="lazy" className="w-full h-full object-cover" />
@@ -93,6 +115,7 @@ function Page() {
                 <div className="p-6">
                   <h3 className="font-display text-xl text-foreground">{title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                  <p className="mt-4 font-display text-2xl text-primary">{price}</p>
                 </div>
               </div>
             ))}
