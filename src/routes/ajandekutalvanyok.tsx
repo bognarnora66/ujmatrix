@@ -107,7 +107,7 @@ function Page() {
             <h2 className="mt-4 font-display text-4xl md:text-5xl text-foreground">Bérletek</h2>
           </div>
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {berletek.map(({ src, title, desc }) => (
+            {berletek.map(({ src, title, desc, price }) => (
               <div key={title} className="rounded-3xl bg-card border border-border/60 overflow-hidden hover:border-primary/40 transition-colors">
                 <div className="aspect-[3/2] overflow-hidden">
                   <img src={src} alt={title} loading="lazy" className="w-full h-full object-cover" />
@@ -115,6 +115,7 @@ function Page() {
                 <div className="p-6">
                   <h3 className="font-display text-xl text-foreground">{title}</h3>
                   <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
+                  <p className="mt-4 font-display text-2xl text-primary">{price}</p>
                 </div>
               </div>
             ))}
