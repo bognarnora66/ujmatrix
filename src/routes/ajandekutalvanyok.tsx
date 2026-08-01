@@ -20,14 +20,19 @@ export const Route = createFileRoute("/ajandekutalvanyok")({
 });
 
 const utalvanyok = [
-  { src: utalvany1, title: "1 alkalmas ajándékutalvány", desc: "Egy alkalom légzésterápia vagy coaching." },
-  { src: utalvany5, title: "5 alkalmas ajándékutalvány", desc: "Mélyebb folyamathoz, kedvezményes csomagban." },
-  { src: utalvany10, title: "10 alkalmas ajándékutalvány", desc: "Komoly belső munkára, tartós változásra." },
+  { src: utalvany1, title: "1 alkalmas ajándékutalvány", desc: "Egy alkalom légzésterápia vagy coaching.", price: "20 000 Ft" },
+  { src: utalvany5, title: "5 alkalmas ajándékutalvány", desc: "Mélyebb folyamathoz, kedvezményes csomagban.", price: "100 000 Ft" },
+  { src: utalvany10, title: "10 alkalmas ajándékutalvány", desc: "Komoly belső munkára, tartós változásra.", price: "180 000 Ft" },
 ];
 
 const berletek = [
-  { src: berlet5, title: "5 alkalmas bérlet", desc: "Saját magadnak — öt alkalom, kedvezménnyel." },
-  { src: berlet10, title: "10 alkalmas bérlet", desc: "Hosszabb folyamathoz, a legkedvezőbb áron." },
+  { src: berlet5, title: "5 alkalmas bérlet", desc: "Saját magadnak — öt alkalom, kedvezménnyel.", price: "90 000 Ft" },
+  { src: berlet10, title: "10 alkalmas bérlet", desc: "Hosszabb folyamathoz, a legkedvezőbb áron.", price: "180 000 Ft" },
+];
+
+const szolgaltatasok = [
+  { title: "Légzésterápia (transzlégzés)", price: "20 000 Ft" },
+  { title: "Coaching", price: "20 000 Ft" },
 ];
 
 function Page() {
