@@ -50,7 +50,7 @@ const topics: Topic[] = [
       { title: "Érzed, hogy mindenki más halad, csak te nem?", body: "Összehasonlítod magad másokkal, és úgy érzed, lemaradtál? A coaching nem arról szól, hogy utolérj valakit — hanem hogy megtaláld a saját tempódat és iránytűdet. Mert a te utad csak a tiéd.", tags: ["életcélok", "coaching", "önbizalom"] },
       { title: "Mikor döntöttél utoljára magadért?", body: "Sokszor hozzuk meg döntéseinket mások elvárásai alapján. A coachingban megtanulod felismerni, melyik hang a tiéd valójában. És onnan már sokkal könnyebb lépni.", tags: ["döntéshozatal", "határok", "coaching"] },
       { title: "Van egy álmod, amiről már rég nem beszéltél?", body: "Lehet, hogy félsz kimondani, mert akkor el kellene indulni felé. A coaching egy biztonságos tér, ahol kimondhatod — ítélet nélkül. És ahol kiderül, hogy az álom nem is olyan elérhetetlen.", tags: ["álmok", "életváltás", "coaching"] },
-      { title: "Mi a különbség a coach és a terapeuta között?", body: "A terapeuta a múltat gyógyítja, a coach a jövőre fókuszál. Én a kettőt ötvözöm — légzésterápiás alappal, coachingos szemlélettel. Mert néha a régi sebek tartanak vissza az új lépéstől.", tags: ["coach", "terapeuta", "légzésterápia"] },
+      { title: "Úgy érzed, elakadtál egy döntési helyzetben?", body: "Órákat vagy akár heteket tudsz eltölteni azzal, hogy a lehetőségeket mérlegeled, mégsem tudsz továbblépni? A túlthinkelés rabul ejt. A coaching segít rendet tenni a fejedben, megtalálni a saját válaszaidat, és magabiztosan elköteleződni az általad választott irány mellett.", tags: ["döntéshozatal", "elakadás", "coaching"] },
     ],
   },
   {
