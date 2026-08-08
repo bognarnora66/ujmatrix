@@ -61,7 +61,7 @@ const topics: Topic[] = [
       { title: "Valamikor szeretted a munkádat — most csak túléled?", body: "Ha már nem emlékszel, mikor csináltál valamit örömből, az nem lustaság. Az kiégés. A test és lélek jelzése, hogy valami alapvetően elbillent. Ideje megállni és benézni befelé.", tags: ["burnout", "munkahelyi stressz", "coaching"] },
       { title: "Mindenre azt mondod „igen”, közben belül üres vagy?", body: "A folyamatos megfelelés kiüríti az embert. Előbb-utóbb nem marad semmi, amit adhatnál — magadnak sem. A coachingban megtanuljuk együtt, hogyan mondj nemet anélkül, hogy bűntudatod legyen.", tags: ["határok", "megfelelési kényszer", "kiégés"] },
       { title: "Mikor sírtál utoljára — de nem is tudtad, miért?", body: "Ez az egyik leggyakoribb jel. A test levezeti, amit az elme már nem bír tartani. A kiégés nem egyik napról a másikra jön — lassan gyűlik. De ugyanígy, lassan el is lehet engedni.", tags: ["érzelmi kimerültség", "burnout", "légzésterápia"] },
-      { title: "Azt hiszed, majd megoldódik magától?", body: "A kiégés nem múlik el pihenéssel. Sokan egy hosszú hétvége után visszatérnek — és ugyanolyan üresnek érzik magukat. Mert nem a fáradtság a probléma, hanem ami mögötte van. Azt nézzük meg együtt.", tags: ["kiégés", "önismeret", "coaching"] },
+      { title: "Olyan dolgok idegesítenek fel, amik régen nem zavartak?", body: "Az érzelmi fásultság és a csökkent toleranciaszint a kiégés egyértelmű előjelei. Amikor a belső tartalékaid teljesen lemerülnek, a legkisebb fennakadás is elviselhetetlen tehernek tűnik. Légzésterápiával és coachinggal segítünk újjáépíteni a belső erőforrásaidat, hogy ne csak létezz, hanem újra élni tudd a mindennapokat.", tags: ["kiégés", "érzelmikimerültség", "öngondoskodás"] },
     ],
   },
   {
