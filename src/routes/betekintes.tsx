@@ -83,7 +83,7 @@ const topics: Topic[] = [
       { title: "Mindig az apád elismerését keresed?", body: "Ha gyerekként nem kaptad meg apádtól a 'jól csináltad' érzést, felnőttként is keresni fogod. Emberekben, sikerekben, munkában. A légzésterápiában visszamegyünk a forráshoz — és végre betöltjük azt az űrt.", tags: ["apai elismerés", "önbizalom", "légzésterápia"] },
       { title: "Apád indulatos volt — most te is félsz?", body: "Amit gyerekként láttunk, mintává válik. Vagy követjük, vagy annyira félünk tőle, hogy teljesen elfojtjuk az érzelmeinket. Egyik sem egészséges. A coachingban megtanulod az egészséges közepet.", tags: ["indulat", "apai minta", "önismeret"] },
       { title: "Apád elment — azóta nehéz bízni?", body: "Az elhagyás — akár halál, akár válás, akár csak érzelmi távolodás — mély sebet hagy. 'Ha ő is elment, mindenki elmegy.' Ez a hiedelem irányítja a kapcsolataidat, amíg nem nézünk rá együtt.", tags: ["elhagyásfélelem", "bizalmatlanság", "párkapcsolat"] },
-      { title: "Sosem mondta, hogy szeret — most te se tudod?", body: "A szeretet kifejezése tanult viselkedés. Ha nem láttad, nem kaptad — nehéz adni. De ez nem végzet. A minta felismerhető, és megváltoztatható. Ott tudok lenni ebben az úton.", tags: ["szeretet", "apai seb", "coaching"] },
+      { title: "Nehéz elfogadnod a védettséget és a biztonságot?", body: "Ha az édesapád nem tudott stabil támasz lenni az életedben, felnőttként könnyen azt érezheted, hogy mindent egyedül kell megoldanod, és senkire sem támaszkodhatsz. A biztonságérzet hiánya folyamatos belső feszültséget szül. Légzésterápiával és coachinggal megtanulhatod kiépíteni a saját belső stabilitásodat, hogy végre megpihenhess.", tags: ["apaiseb", "biztonságérzet", "önismeret"] },
     ],
   },
   {
