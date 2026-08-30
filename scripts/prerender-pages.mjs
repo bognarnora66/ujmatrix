@@ -1,14 +1,14 @@
 // Statikus HTML-előrenderelés GitHub Pages-hez.
 // A `bun run build` (vite build) után futtatandó: node scripts/prerender-pages.mjs
-// A dist/server/index.mjs SSR entry-t helyi HTTP szerveren futtatja,
-// lekéri az összes oldalt, és a dist/client alá menti a HTML-eket.
+// A buildelt SSR entry-t helyi HTTP szerveren futtatja,
+// lekéri az összes oldalt, és a kliens-oldali kimenet alá menti a HTML-eket.
 import { createServer } from "node:http";
-import { mkdir, writeFile, copyFile } from "node:fs/promises";
+import { mkdir, writeFile, copyFile, readdir, stat } from "node:fs/promises";
+import { existsSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
-const clientDir = join(root, "dist", "client");
 const base = process.env["BASE_PATH"] ?? "/";
 
 const routes = [
@@ -21,9 +21,80 @@ const routes = [
   "/aszf",
 ];
 
-const serverEntry = (
-  await import(pathToFileURL(join(root, "dist", "server", "index.mjs")).toString())
-).default;
+// --- Kimeneti mappák felderítése -------------------------------------------
+// A build kimenete környezetfüggő lehet (Nitro preset-detektálás CI-ben),
+// ezért több ismert helyen is megkeressük a kliens és a szerver kimenetet.
+
+const clientDirCandidates = [
+  join(root, "dist", "client"),
+  join(root, ".output", "public"),
+  join(root, "dist"),
+];
+
+function looksLikeClientDir(dir) {
+  return existsSync(join(dir, "assets")) || existsSync(join(dir, "index.html"));
+}
+
+const clientDir = clientDirCandidates.find(
+  (dir) => existsSync(dir) && looksLikeClientDir(dir),
+);
+if (!clientDir) {
+  console.error(
+    `✗ Nem találom a kliens kimenetet. Keresett helyek:\n  ${clientDirCandidates.join("\n  ")}`,
+  );
+  process.exit(1);
+}
+
+// Rekurzívan megkeresi az első "index.mjs"-t, ami SSR entry-nek tűnik.
+async function findServerEntry(dir, depth = 0) {
+  if (depth > 3 || !existsSync(dir)) return undefined;
+  const direct = join(dir, "index.mjs");
+  if (existsSync(direct)) return direct;
+  for (const entry of await readdir(dir)) {
+    const full = join(dir, entry);
+    if ((await stat(full)).isDirectory()) {
+      const found = await findServerEntry(full, depth + 1);
+      if (found) return found;
+    }
+  }
+  return undefined;
+}
+
+const serverDirCandidates = [
+  join(root, "dist", "server"),
+  join(root, ".output", "server"),
+];
+
+let serverEntryPath;
+for (const dir of serverDirCandidates) {
+  serverEntryPath = await findServerEntry(dir);
+  if (serverEntryPath) break;
+}
+
+if (!serverEntryPath) {
+  console.error(
+    `✗ Nem találom az SSR server entry-t. Keresett helyek:\n  ${serverDirCandidates.join("\n  ")}`,
+  );
+  process.exit(1);
+}
+
+console.log(`Kliens kimenet: ${clientDir}`);
+console.log(`Server entry:   ${serverEntryPath}`);
+
+// --- SSR entry betöltése -----------------------------------------------------
+
+const serverModule = await import(pathToFileURL(serverEntryPath).toString());
+const serverEntry =
+  serverModule.default?.fetch
+    ? serverModule.default
+    : serverModule.fetch
+      ? serverModule
+      : undefined;
+
+if (!serverEntry || typeof serverEntry.fetch !== "function") {
+  console.error("✗ A server entry nem exportál fetch függvényt.");
+  process.exit(1);
+}
 
 const server = createServer(async (req, res) => {
   const url = new URL(req.url ?? "/", "http://localhost");
@@ -75,4 +146,4 @@ await copyFile(join(clientDir, "index.html"), join(clientDir, "404.html"));
 // Jelzőfájl: GitHub Pages ne futtassa a Jekyll-t
 await writeFile(join(clientDir, ".nojekyll"), "");
 
-console.log("Kész: statikus oldalak a dist/client mappában.");
+console.log("Kész: statikus oldalak a kliens kimenetben.");
