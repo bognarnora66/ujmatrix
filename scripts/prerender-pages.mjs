@@ -28,7 +28,9 @@ const serverEntry = (
 const server = createServer(async (req, res) => {
   const url = new URL(req.url ?? "/", "http://localhost");
   const webReq = new Request(url, { method: "GET", headers: req.headers });
-  const webRes = await serverEntry.fetch(webReq, {}, {});
+  const noop = () => {};
+  const ctx = { waitUntil: noop, context: { waitUntil: noop }, passThroughOnException: noop };
+  const webRes = await serverEntry.fetch(webReq, {}, ctx);
   res.writeHead(webRes.status, Object.fromEntries(webRes.headers.entries()));
   const body = Buffer.from(await webRes.arrayBuffer());
   res.end(body);
