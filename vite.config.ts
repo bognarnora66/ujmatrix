@@ -10,35 +10,12 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 // @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
 // GitHub Pages-hez statikus build: BASE_PATH pl. "/repo-neve/" (alapértelmezett "/")
 const base = process.env["BASE_PATH"] ?? "/";
-// Statikus (GitHub Pages) buildnél nincs szükség a Cloudflare worker entry-re;
-// a prerenderhez az alapértelmezett szerver build kell (dist/server/server.js).
-const isStaticPagesBuild = Boolean(process.env["BASE_PATH"]);
 
 export default defineConfig({
   vite: {
     base,
   },
   tanstackStart: {
-    ...(isStaticPagesBuild
-      ? { target: "node" }
-      : { server: { entry: "server" } }),
-    prerender: {
-      routes: [
-        "/",
-        "/rolam",
-        "/betekintes",
-        "/media",
-        "/ajandekutalvanyok",
-        "/kapcsolat",
-        "/aszf",
-      ],
-      crawlLinks: true,
-    },
-    spa: {
-      enabled: true,
-      prerender: {
-        outputPath: "404.html",
-      },
-    },
+    server: { entry: "server" },
   },
 });
