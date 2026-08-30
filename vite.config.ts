@@ -19,7 +19,9 @@ export default defineConfig({
     base,
   },
   tanstackStart: {
-    ...(isStaticPagesBuild ? {} : { server: { entry: "server" } }),
+    ...(isStaticPagesBuild
+      ? { target: "node" }
+      : { server: { entry: "server" } }),
     prerender: {
       routes: [
         "/",
