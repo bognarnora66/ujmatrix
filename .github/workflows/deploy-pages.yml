@@ -22,17 +22,10 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
 
-      - name: Repo-név alapú base path kiszámítása
+      - name: Base path beállítása custom domainhez
         id: base
         run: |
-          REPO="${GITHUB_REPOSITORY#*/}"
-          OWNER_LOWER=$(echo "${GITHUB_REPOSITORY_OWNER}" | tr '[:upper:]' '[:lower:]')
-          REPO_LOWER=$(echo "$REPO" | tr '[:upper:]' '[:lower:]')
-          if [ "$REPO_LOWER" = "$OWNER_LOWER.github.io" ]; then
-            echo "path=/" >> "$GITHUB_OUTPUT"
-          else
-            echo "path=/$REPO/" >> "$GITHUB_OUTPUT"
-          fi
+          echo "path=/" >> "$GITHUB_OUTPUT"
 
       - name: Függőségek telepítése
         run: bun install --frozen-lockfile || bun install
@@ -41,13 +34,6 @@ jobs:
         env:
           BASE_PATH: ${{ steps.base.outputs.path }}
         run: bun run build
-
-      - name: Könyvtárszerkezet ellenőrzése (Debug)
-        run: |
-          echo "=== Létrejött fájlok és mappák a projekt gyökerében ==="
-          ls -la
-          echo "=== Ha létezik dist mappa, annak tartalma ==="
-          ls -la dist || echo "A dist mappa nem létezik!"
 
       - name: Kliens kimeneti mappa megkeresése és előkészítése
         id: client
@@ -61,8 +47,7 @@ jobs:
           done
 
           if [ -z "$TARGET_DIR" ]; then
-            echo "X Nem található index.html! Keresés az egész projekten belül:" >&2
-            find . -name "index.html" -maxdepth 3
+            echo "X Nem található index.html!" >&2
             exit 1
           fi
 
