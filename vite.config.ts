@@ -8,8 +8,8 @@ import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
 // @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
-// GitHub Pages-hez statikus build: BASE_PATH pl. "/repo-neve/" (alapértelmezett "/")
-const base = process.env["BASE_PATH"] ?? "/";
+// Custom domain (ujmatrix.hu) uses root base path.
+const base = "/";
 
 export default defineConfig({
   vite: {
