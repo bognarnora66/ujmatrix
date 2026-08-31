@@ -2,8 +2,9 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Facebook, Instagram, Phone } from "lucide-react";
 import { RESERVIO_URL } from "@/components/Layout";
 import mediaHero from "@/assets/site/media-hero.png";
-import tiktok1 from "@/assets/site/promo-tiktok-1.mp4.asset.json";
-import tiktok2 from "@/assets/site/promo-tiktok-2.mp4.asset.json";
+
+// Helyi, statikusan kiszolgált videók — GitHub Pages-en is működnek (BASE_PATH-tal).
+const mediaBase = `${import.meta.env.BASE_URL}media/`;
 
 export const Route = createFileRoute("/media")({
   head: () => ({
@@ -23,8 +24,8 @@ const videos = [
 ];
 
 const tiktoks = [
-  { src: tiktok1.url, title: "TikTok promó — 2025.10.01" },
-  { src: tiktok2.url, title: "ÚjMátrix promó — TikTok" },
+  { src: `${mediaBase}promo-tiktok-1.mp4`, title: "TikTok promó — 2025.10.01" },
+  { src: `${mediaBase}promo-tiktok-2.mp4`, title: "ÚjMátrix promó — TikTok" },
 ];
 
 function Media() {
