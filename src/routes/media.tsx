@@ -24,8 +24,8 @@ const videos = [
 ];
 
 const tiktoks = [
-  { src: tiktok1.url, title: "TikTok promó — 2025.10.01" },
-  { src: tiktok2.url, title: "ÚjMátrix promó — TikTok" },
+  { src: `${mediaBase}promo-tiktok-1.mp4`, title: "TikTok promó — 2025.10.01" },
+  { src: `${mediaBase}promo-tiktok-2.mp4`, title: "ÚjMátrix promó — TikTok" },
 ];
 
 function Media() {
