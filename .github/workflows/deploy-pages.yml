@@ -42,17 +42,32 @@ jobs:
           BASE_PATH: ${{ steps.base.outputs.path }}
         run: bun run build
 
-      - name: CNAME és 404.html előkészítése
+      - name: Kliens kimeneti mappa megkeresése és előkészítése
+        id: client
         run: |
-          echo "ujmatrix.hu" > dist/CNAME
-          cp dist/index.html dist/404.html
+          TARGET_DIR=""
+          for dir in dist/client .output/public dist; do
+            if [ -d "$dir" ] && [ -f "$dir/index.html" ]; then
+              TARGET_DIR="$dir"
+              break
+            fi
+          done
+
+          if [ -z "$TARGET_DIR" ]; then
+            echo "X Nem található érvényes kimeneti mappa!" >&2
+            exit 1
+          fi
+
+          echo "ujmatrix.hu" > "$TARGET_DIR/CNAME"
+          cp "$TARGET_DIR/index.html" "$TARGET_DIR/404.html"
+          echo "path=$TARGET_DIR" >> "$GITHUB_OUTPUT"
 
       - uses: actions/configure-pages@v5
 
       - name: Deploy artifact feltöltése
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: ${{ steps.client.outputs.path }}
 
   deploy:
     needs: build
