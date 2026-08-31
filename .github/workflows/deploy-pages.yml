@@ -42,32 +42,17 @@ jobs:
           BASE_PATH: ${{ steps.base.outputs.path }}
         run: bun run build
 
-# - name: Statikus oldalak előrenderelése
-#   env:
-#     BASE_PATH: ${{ steps.base.outputs.path }}
-#   run: node scripts/prerender-pages.mjs
+      - name: CNAME és 404.html előkészítése
+        run: |
+          echo "ujmatrix.hu" > dist/CNAME
+          cp dist/index.html dist/404.html
 
-#      - name: Kliens kimeneti mappa megkeresése
-#        id: client
-#        run: |
-#          for dir in dist/client .output/public dist; do
-#            if [ -f "$dir/index.html" ]; then
-#              echo "path=$dir" >> "$GITHUB_OUTPUT"
-#              echo "Kliens kimenet: $dir"
-#              exit 0
-#            fi
-#          done
-#          echo "✗ Nem találom a kliens kimenetet (index.html)!" >&2
-#          exit 1
       - uses: actions/configure-pages@v5
+
       - name: Deploy artifact feltöltése
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
-
-#     - uses: actions/upload-pages-artifact@v3
-#       with:
-#         path: ${{ steps.client.outputs.path }}
 
   deploy:
     needs: build
