@@ -37,20 +37,32 @@ jobs:
       - name: Kliens kimeneti mappa megkeresése
         id: client
         run: |
-          # Először megkeressük a pontos mappát, ahol az index.html lapul
-          INDEX_PATH=$(find . -name "index.html" -not -path "*/node_modules/*" | head -n 1)
-          
-          if [ -z "$INDEX_PATH" ]; then
-            echo "X Nem található index.html a build után!" >&2
+          echo "=== Generált fájlok és mappák ==="
+          find . -maxdepth 4 -not -path "*/node_modules/*" -not -path "*/.git/*"
+
+          TARGET_DIR=""
+          if [ -d ".output/public" ]; then
+            TARGET_DIR=".output/public"
+          elif [ -d "dist/client" ]; then
+            TARGET_DIR="dist/client"
+          elif [ -d "dist" ]; then
+            TARGET_DIR="dist"
+          else
+            TARGET_DIR=$(find . -type d \( -name "public" -o -name "client" \) -not -path "*/node_modules/*" -not -path "*/.git/*" | head -n 1)
+          fi
+
+          if [ -z "$TARGET_DIR" ]; then
+            echo "X Nem található kimeneti mappa!" >&2
             exit 1
           fi
 
-          # Kiszedjük a mappa útvonalát a fájlnévből
-          TARGET_DIR=$(dirname "$INDEX_PATH")
           echo "Megtalált kimeneti mappa: $TARGET_DIR"
-
           echo "ujmatrix.hu" > "$TARGET_DIR/CNAME"
-          cp "$TARGET_DIR/index.html" "$TARGET_DIR/404.html"
+          
+          if [ -f "$TARGET_DIR/index.html" ]; then
+            cp "$TARGET_DIR/index.html" "$TARGET_DIR/404.html"
+          fi
+
           echo "path=$TARGET_DIR" >> "$GITHUB_OUTPUT"
 
       - uses: actions/configure-pages@v5
