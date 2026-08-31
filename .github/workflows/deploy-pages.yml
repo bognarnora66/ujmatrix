@@ -22,10 +22,9 @@ jobs:
 
       - uses: oven-sh/setup-bun@v2
 
-      - name: Base path beállítása custom domainhez
+      - name: Base path beállítás
         id: base
-        run: |
-          echo "path=/" >> "$GITHUB_OUTPUT"
+        run: echo "path=/" >> "$GITHUB_OUTPUT"
 
       - name: Függőségek telepítése
         run: bun install --frozen-lockfile || bun install
@@ -35,21 +34,20 @@ jobs:
           BASE_PATH: ${{ steps.base.outputs.path }}
         run: bun run build
 
-      - name: Kliens kimeneti mappa megkeresése és előkészítése
+      - name: Kliens kimeneti mappa megkeresése
         id: client
         run: |
-          TARGET_DIR=""
-          for dir in dist/client .output/public dist build out; do
-            if [ -d "$dir" ] && [ -f "$dir/index.html" ]; then
-              TARGET_DIR="$dir"
-              break
-            fi
-          done
-
-          if [ -z "$TARGET_DIR" ]; then
-            echo "X Nem található index.html!" >&2
+          # Először megkeressük a pontos mappát, ahol az index.html lapul
+          INDEX_PATH=$(find . -name "index.html" -not -path "*/node_modules/*" | head -n 1)
+          
+          if [ -z "$INDEX_PATH" ]; then
+            echo "X Nem található index.html a build után!" >&2
             exit 1
           fi
+
+          # Kiszedjük a mappa útvonalát a fájlnévből
+          TARGET_DIR=$(dirname "$INDEX_PATH")
+          echo "Megtalált kimeneti mappa: $TARGET_DIR"
 
           echo "ujmatrix.hu" > "$TARGET_DIR/CNAME"
           cp "$TARGET_DIR/index.html" "$TARGET_DIR/404.html"
