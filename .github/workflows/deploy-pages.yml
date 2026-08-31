@@ -47,24 +47,27 @@ jobs:
 #     BASE_PATH: ${{ steps.base.outputs.path }}
 #   run: node scripts/prerender-pages.mjs
 
-      - name: Kliens kimeneti mappa megkeresése
-        id: client
-        run: |
-          for dir in dist/client .output/public dist; do
-            if [ -f "$dir/index.html" ]; then
-              echo "path=$dir" >> "$GITHUB_OUTPUT"
-              echo "Kliens kimenet: $dir"
-              exit 0
-            fi
-          done
-          echo "✗ Nem találom a kliens kimenetet (index.html)!" >&2
-          exit 1
-
+#      - name: Kliens kimeneti mappa megkeresése
+#        id: client
+#        run: |
+#          for dir in dist/client .output/public dist; do
+#            if [ -f "$dir/index.html" ]; then
+#              echo "path=$dir" >> "$GITHUB_OUTPUT"
+#              echo "Kliens kimenet: $dir"
+#              exit 0
+#            fi
+#          done
+#          echo "✗ Nem találom a kliens kimenetet (index.html)!" >&2
+#          exit 1
       - uses: actions/configure-pages@v5
-
-      - uses: actions/upload-pages-artifact@v3
+      - name: Deploy artifact feltöltése
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: ${{ steps.client.outputs.path }}
+          path: './dist'
+
+#     - uses: actions/upload-pages-artifact@v3
+#       with:
+#         path: ${{ steps.client.outputs.path }}
 
   deploy:
     needs: build
