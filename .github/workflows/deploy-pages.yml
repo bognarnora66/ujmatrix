@@ -42,11 +42,18 @@ jobs:
           BASE_PATH: ${{ steps.base.outputs.path }}
         run: bun run build
 
+      - name: Könyvtárszerkezet ellenőrzése (Debug)
+        run: |
+          echo "=== Létrejött fájlok és mappák a projekt gyökerében ==="
+          ls -la
+          echo "=== Ha létezik dist mappa, annak tartalma ==="
+          ls -la dist || echo "A dist mappa nem létezik!"
+
       - name: Kliens kimeneti mappa megkeresése és előkészítése
         id: client
         run: |
           TARGET_DIR=""
-          for dir in dist/client .output/public dist; do
+          for dir in dist/client .output/public dist build out; do
             if [ -d "$dir" ] && [ -f "$dir/index.html" ]; then
               TARGET_DIR="$dir"
               break
@@ -54,7 +61,8 @@ jobs:
           done
 
           if [ -z "$TARGET_DIR" ]; then
-            echo "X Nem található érvényes kimeneti mappa!" >&2
+            echo "X Nem található index.html! Keresés az egész projekten belül:" >&2
+            find . -name "index.html" -maxdepth 3
             exit 1
           fi
 
