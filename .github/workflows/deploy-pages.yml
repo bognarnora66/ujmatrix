@@ -42,10 +42,10 @@ jobs:
           BASE_PATH: ${{ steps.base.outputs.path }}
         run: bun run build
 
-      - name: Statikus oldalak előrenderelése
-        env:
-          BASE_PATH: ${{ steps.base.outputs.path }}
-        run: node scripts/prerender-pages.mjs
+# - name: Statikus oldalak előrenderelése
+#   env:
+#     BASE_PATH: ${{ steps.base.outputs.path }}
+#   run: node scripts/prerender-pages.mjs
 
       - name: Kliens kimeneti mappa megkeresése
         id: client
