@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import portraitImg from "@/assets/site/portrait-2026.jpg.asset.json";
+import portraitImg from "@/assets/site/portrait-2026.jpg";
 import doorwayImg from "@/assets/site/content1.jpg";
 import heroImg from "@/assets/site/rolam-hero.jpg";
 import { RESERVIO_URL } from "@/components/Layout";
@@ -38,7 +38,7 @@ function Rolam() {
       <section className="mx-auto max-w-6xl px-6 pb-24 grid md:grid-cols-5 gap-12 items-start">
         <div className="md:col-span-2">
           <div className="rounded-3xl overflow-hidden aspect-[4/5] sticky top-28">
-            <img src={portraitImg.url} alt="Bognár Eleonóra" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
+            <img src={portraitImg} alt="Bognár Eleonóra" loading="lazy" width={1024} height={1280} className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="md:col-span-3 space-y-6 text-foreground/85 leading-relaxed text-lg">
