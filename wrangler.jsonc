@@ -4,9 +4,5 @@
   "compatibility_date": "2025-09-24",
   "compatibility_flags": ["nodejs_compat"],
   "main": "src/server.ts",
-  "workers_dev": false,
-  "routes": [
-    { "pattern": "ujmatrix.hu/*", "custom_domain": true },
-    { "pattern": "www.ujmatrix.hu/*", "custom_domain": true }
-  ]
+  "workers_dev": true
 }
