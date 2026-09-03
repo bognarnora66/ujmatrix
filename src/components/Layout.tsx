@@ -1,7 +1,7 @@
 import { Link, Outlet } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowUp, ChevronDown, Menu, X } from "lucide-react";
-import logo from "@/assets/site/logo.png";
+import logoAsset from "@/assets/site/logo-2026.png.asset.json";
 import footerBg from "@/assets/site/footer-bg.jpg";
 
 
