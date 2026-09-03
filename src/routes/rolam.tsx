@@ -68,7 +68,7 @@ function Rolam() {
 
           <div className="pt-8 flex flex-wrap gap-4">
             <a href={RESERVIO_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 hover:opacity-90 transition">
-              Időpontfoglalás <ArrowRight size={16} />
+              Foglalás és Árak <ArrowRight size={16} />
             </a>
             <Link to="/kapcsolat" className="inline-flex items-center gap-2 rounded-full border border-foreground/20 px-7 py-3.5 hover:bg-foreground/5 transition">
               Írj nekem

@@ -89,7 +89,7 @@ export function Header() {
             rel="noopener noreferrer"
             className="px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm hover:opacity-90 transition"
           >
-            Időpontfoglalás
+            Foglalás és Árak
           </a>
         </nav>
         <button
@@ -134,7 +134,7 @@ export function Header() {
               rel="noopener noreferrer"
               className="px-5 py-3 rounded-full bg-primary text-primary-foreground text-sm text-center"
             >
-              Időpontfoglalás
+              Foglalás és Árak
             </a>
           </div>
         </div>

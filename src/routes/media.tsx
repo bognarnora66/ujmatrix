@@ -104,7 +104,7 @@ function Media() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-7 py-3.5 hover:opacity-90 transition"
             >
-              Időpontfoglalás
+              Foglalás és Árak
             </a>
             <a
               href="tel:+36302092338"

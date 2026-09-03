@@ -46,7 +46,7 @@ function Index() {
               rel="noopener noreferrer"
               className="group inline-flex items-center gap-2 rounded-full bg-primary text-primary-foreground px-8 py-4 text-base hover:opacity-90 transition"
             >
-              Időpontfoglalás
+              Foglalás és Árak
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </a>
             <Link
