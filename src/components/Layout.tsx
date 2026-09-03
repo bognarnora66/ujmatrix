@@ -33,9 +33,9 @@ export function Header() {
       <div className="mx-auto max-w-6xl px-6 h-20 flex items-center justify-between gap-4">
         <Link to="/" className="shrink-0">
           <img
-            src={logoAsset.url}
-            alt="Bognár Eleonóra — ÚjMátrix logo"
-            className="h-12 md:h-14 w-auto object-contain"
+            src={logoUrl}
+            alt="Bognár Eleonóra — Légzésterapeuta logo"
+            className="h-16 md:h-24 w-auto object-contain"
           />
         </Link>
         <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
