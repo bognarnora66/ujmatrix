@@ -31,16 +31,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
       <div className="mx-auto max-w-6xl px-6 h-20 flex items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-3 shrink-0">
-          <img src={logo} alt="ÚjMátrix logo" width={40} height={40} className="w-9 h-9 md:w-10 md:h-10 object-contain" />
-          <span className="flex flex-col leading-tight">
-            <span className="font-display text-xl md:text-2xl tracking-tight text-foreground">
-              Új<span className="text-primary">Mátrix</span>
-            </span>
-            <span className="hidden sm:block text-[10px] md:text-[11px] uppercase tracking-[0.18em] text-muted-foreground">
-              Bognár Eleonóra · +36 30 209 2338
-            </span>
-          </span>
+        <Link to="/" className="shrink-0">
+          <img
+            src={logoAsset.url}
+            alt="Bognár Eleonóra — ÚjMátrix logo"
+            className="h-12 md:h-14 w-auto object-contain"
+          />
         </Link>
         <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
           {headerNav.map((item) =>
