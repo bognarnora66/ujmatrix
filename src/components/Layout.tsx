@@ -1,7 +1,7 @@
 import { Link, Outlet } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowUp, ChevronDown, Menu, X } from "lucide-react";
-import logoAsset from "@/assets/site/logo-2026.png.asset.json";
+const logoUrl = `${import.meta.env.BASE_URL}logo-2026.png`;
 import footerBg from "@/assets/site/footer-bg.jpg";
 
 
@@ -30,12 +30,12 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
-      <div className="mx-auto max-w-6xl px-6 h-20 flex items-center justify-between gap-4">
+      <div className="mx-auto max-w-6xl px-6 h-24 md:h-28 flex items-center justify-between gap-4">
         <Link to="/" className="shrink-0">
           <img
-            src={logoAsset.url}
-            alt="Bognár Eleonóra — ÚjMátrix logo"
-            className="h-12 md:h-14 w-auto object-contain"
+            src={logoUrl}
+            alt="Bognár Eleonóra — Légzésterapeuta logo"
+            className="h-16 md:h-24 w-auto object-contain"
           />
         </Link>
         <nav className="hidden lg:flex items-center gap-4 xl:gap-6">
