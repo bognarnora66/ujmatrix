@@ -30,7 +30,7 @@ export function Header() {
   const [open, setOpen] = useState(false);
   return (
     <header className="sticky top-0 z-50 backdrop-blur-md bg-background/70 border-b border-border/60">
-      <div className="mx-auto max-w-6xl px-6 h-20 flex items-center justify-between gap-4">
+      <div className="mx-auto max-w-6xl px-6 h-24 md:h-28 flex items-center justify-between gap-4">
         <Link to="/" className="shrink-0">
           <img
             src={logoUrl}
