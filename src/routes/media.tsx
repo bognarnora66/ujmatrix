@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Facebook, Instagram, Phone } from "lucide-react";
 import { RESERVIO_URL } from "@/components/Layout";
 import mediaHero from "@/assets/site/media-hero.png";
+import { SITE_URL, pageHead, breadcrumbJsonLd } from "@/lib/seo";
 
 // Helyi, statikusan kiszolgált videók — GitHub Pages-en is működnek (BASE_PATH-tal).
 const mediaBase = `${import.meta.env.BASE_URL}media/`;
@@ -13,6 +14,12 @@ export const Route = createFileRoute("/media")({
       { name: "description", content: "Bognár Eleonóra légzésterapeuta videói és hanganyagai. Nézz be egy pillanatra a munkámba." },
       { property: "og:title", content: "Média — ÚjMátrix" },
       { property: "og:description", content: "Videók és hanganyagok légzésterápiáról." },
+      ...pageHead("/media").meta,
+    ],
+    links: pageHead("/media").links,
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd("Média", "/media")) },
+      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "CollectionPage", name: "Média", url: `${SITE_URL}/media`, inLanguage: "hu-HU", isPartOf: { "@id": `${SITE_URL}/#website` } }) },
     ],
   }),
   component: Media,

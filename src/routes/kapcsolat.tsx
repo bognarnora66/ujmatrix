@@ -5,6 +5,7 @@ import { toast } from "sonner";
 import { MapPin, Phone, Mail, Send } from "lucide-react";
 import { RESERVIO_URL } from "@/components/Layout";
 import cityWoman from "@/assets/site/city-woman.png";
+import { SITE_URL, pageHead, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/kapcsolat")({
   head: () => ({
@@ -13,6 +14,12 @@ export const Route = createFileRoute("/kapcsolat")({
       { name: "description", content: "Kapcsolat: Bognár Eleonóra légzésterapeuta, 1073 Budapest, Erzsébet körút 58. Telefon: +36 30 209 2338." },
       { property: "og:title", content: "Kapcsolat — ÚjMátrix" },
       { property: "og:description", content: "Bognár Eleonóra légzésterapeuta — Budapest, Erzsébet körút 58." },
+      ...pageHead("/kapcsolat").meta,
+    ],
+    links: pageHead("/kapcsolat").links,
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd("Kapcsolat", "/kapcsolat")) },
+      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "ContactPage", name: "Kapcsolat", url: `${SITE_URL}/kapcsolat`, inLanguage: "hu-HU", isPartOf: { "@id": `${SITE_URL}/#website` } }) },
     ],
   }),
   component: Kapcsolat,

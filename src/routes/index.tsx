@@ -4,12 +4,33 @@ import { ArrowRight, Wind, Heart, Compass, PlayCircle } from "lucide-react";
 import heroImg from "@/assets/site/banner3.jpg";
 import letGoImg from "@/assets/site/content3.jpg";
 import { RESERVIO_URL } from "@/components/Layout";
+import { SITE_URL, pageHead } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "ÚjMátrix — Az Újmátrixban teljes vagy" },
-      { name: "description", content: "Légzésterápia, coaching és stresszoldás Budapesten. Foglalj időpontot Bognár Eleonórához." },
+      { title: "Légzésterápia és coaching Budapesten | ÚjMátrix" },
+      { name: "description", content: "Bognár Eleonóra légzésterapeuta: transzlégzés, stresszoldás és coaching Budapesten. Az Újmátrixban teljes vagy — foglalj időpontot." },
+      { property: "og:title", content: "Légzésterápia és coaching Budapesten | ÚjMátrix" },
+      { property: "og:description", content: "Transzlégzés, stresszoldás és coaching Bognár Eleonórával. Visszatalálni önmagadhoz a légzéseden keresztül." },
+      { property: "og:image", content: `${SITE_URL}/logo-2026.png` },
+      { name: "twitter:image", content: `${SITE_URL}/logo-2026.png` },
+      ...pageHead("/").meta,
+    ],
+    links: pageHead("/").links,
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebPage",
+          name: "ÚjMátrix — Légzésterápia és coaching",
+          url: `${SITE_URL}/`,
+          inLanguage: "hu-HU",
+          isPartOf: { "@id": `${SITE_URL}/#website` },
+          about: { "@id": `${SITE_URL}/#organization` },
+        }),
+      },
     ],
   }),
   component: Index,
@@ -22,7 +43,7 @@ function Index() {
       <section className="relative overflow-hidden">
         <img
           src={heroImg}
-          alt=""
+          alt="A Föld az űrből, napfelkeltével a peremén — az ÚjMátrix légzésterápia szemlélete"
           width={1920}
           height={1280}
           className="absolute inset-0 w-full h-full object-cover opacity-70"

@@ -4,6 +4,7 @@ import doorwayImg from "@/assets/site/content1.jpg";
 import heroImg from "@/assets/site/rolam-hero.jpg";
 import { RESERVIO_URL } from "@/components/Layout";
 import { ArrowRight } from "lucide-react";
+import { SITE_URL, pageHead, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/rolam")({
   head: () => ({
@@ -12,6 +13,12 @@ export const Route = createFileRoute("/rolam")({
       { name: "description", content: "Bognár Eleonóra légzésterapeuta. Transzperszonális Pszichológia és Légzés Intézete. Transzlégzés és integrálpszichológia." },
       { property: "og:title", content: "Rólam — Bognár Eleonóra" },
       { property: "og:description", content: "Légzésterapeuta, coach. Transzlégzés és integrálpszichológia." },
+      ...pageHead("/rolam").meta,
+    ],
+    links: pageHead("/rolam").links,
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd("Rólam", "/rolam")) },
+      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "ProfilePage", name: "Rólam", url: `${SITE_URL}/rolam`, inLanguage: "hu-HU", isPartOf: { "@id": `${SITE_URL}/#website` } }) },
     ],
   }),
   component: Rolam,
