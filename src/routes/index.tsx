@@ -43,7 +43,7 @@ function Index() {
       <section className="relative overflow-hidden">
         <img
           src={heroImg}
-          alt=""
+          alt="A Föld az űrből, napfelkeltével a peremén — az ÚjMátrix légzésterápia szemlélete"
           width={1920}
           height={1280}
           className="absolute inset-0 w-full h-full object-cover opacity-70"

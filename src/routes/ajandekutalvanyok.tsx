@@ -42,7 +42,7 @@ function Page() {
       <section className="relative overflow-hidden">
         <img
           src={heroImg}
-          alt=""
+          alt="Ajándékutalvány légzésterápiára és coachingra — díszdobozos ajándék"
           width={1920}
           height={1080}
           className="absolute inset-0 w-full h-full object-cover opacity-60"
