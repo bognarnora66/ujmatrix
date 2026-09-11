@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { FileText } from "lucide-react";
+import { SITE_URL, pageHead, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/aszf")({
   head: () => ({
@@ -8,6 +9,12 @@ export const Route = createFileRoute("/aszf")({
       { name: "description", content: "Általános Szerződési Feltételek — Bognár Eleonóra légzésterapeuta. Kezelések, bérletek, időpontfoglalás, lemondás és módosítás szabályai." },
       { property: "og:title", content: "ÁSZF — ÚjMátrix" },
       { property: "og:description", content: "Általános Szerződési Feltételek." },
+      ...pageHead("/aszf").meta,
+    ],
+    links: pageHead("/aszf").links,
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd("ÁSZF", "/aszf")) },
+      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: "ÁSZF", url: `${SITE_URL}/aszf`, inLanguage: "hu-HU", isPartOf: { "@id": `${SITE_URL}/#website` } }) },
     ],
   }),
   component: Aszf,

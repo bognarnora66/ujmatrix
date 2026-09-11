@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { RESERVIO_URL } from "@/components/Layout";
 import heroStars from "@/assets/site/betekintes-hero.png";
+import { SITE_URL, pageHead, breadcrumbJsonLd } from "@/lib/seo";
 
 
 export const Route = createFileRoute("/betekintes")({
@@ -11,6 +12,12 @@ export const Route = createFileRoute("/betekintes")({
       { name: "description", content: "Rövid írások stresszoldásról, szorongásról, önértékelésről, légzésterápiáról, coachingról, kiégésről, anyai és apai sebek feldolgozásáról." },
       { property: "og:title", content: "Betekintés — ÚjMátrix" },
       { property: "og:description", content: "Gondolatok légzésről, stresszről és gyógyulásról." },
+      ...pageHead("/betekintes").meta,
+    ],
+    links: pageHead("/betekintes").links,
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd("Betekintés", "/betekintes")) },
+      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "CollectionPage", name: "Betekintés", url: `${SITE_URL}/betekintes`, inLanguage: "hu-HU", isPartOf: { "@id": `${SITE_URL}/#website` } }) },
     ],
   }),
   component: Betekintes,

@@ -6,6 +6,7 @@ import utalvany5 from "@/assets/site/utalvany-5.png";
 import utalvany10 from "@/assets/site/utalvany-10.png";
 import berlet5 from "@/assets/site/berlet-5.png";
 import berlet10 from "@/assets/site/berlet-10.png";
+import { SITE_URL, pageHead, breadcrumbJsonLd } from "@/lib/seo";
 
 export const Route = createFileRoute("/ajandekutalvanyok")({
   head: () => ({
@@ -14,6 +15,12 @@ export const Route = createFileRoute("/ajandekutalvanyok")({
       { name: "description", content: "Ajándékozz légzésterápiát, coachingot vagy bérletet szeretteidnek. Bognár Eleonóra ÚjMátrix." },
       { property: "og:title", content: "Ajándék & Bérletek — ÚjMátrix" },
       { property: "og:description", content: "Ajándékozz egy belső utazást." },
+      ...pageHead("/ajandekutalvanyok").meta,
+    ],
+    links: pageHead("/ajandekutalvanyok").links,
+    scripts: [
+      { type: "application/ld+json", children: JSON.stringify(breadcrumbJsonLd("Ajándék & Bérletek", "/ajandekutalvanyok")) },
+      { type: "application/ld+json", children: JSON.stringify({ "@context": "https://schema.org", "@type": "WebPage", name: "Ajándék & Bérletek", url: `${SITE_URL}/ajandekutalvanyok`, inLanguage: "hu-HU", isPartOf: { "@id": `${SITE_URL}/#website` } }) },
     ],
   }),
   component: Page,
