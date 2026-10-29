@@ -30,7 +30,7 @@ type Video = { title: string; youtube?: string; src?: string };
 const videos: Video[] = [
   { title: "Miért gyere el hozzám?", youtube: "3Ccr9Tn-0Ms" },
   { title: "ÚjMátrix — bemutatkozás", youtube: "zqt3E8OLfTI" },
-  { title: "Stresszkezelés — 5 alkalmas program", src: `${mediaBase}stresszkezeles-5-alkalmas.mp4` },
+  { title: "Napi stressz? Hogyan kezeld?", youtube: "f1z4KQUQuTc" },
 ];
 
 const tiktoks = [
