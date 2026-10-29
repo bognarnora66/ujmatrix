@@ -9,37 +9,17 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as RolamRouteImport } from './routes/rolam'
-import { Route as MediaRouteImport } from './routes/media'
-import { Route as KapcsolatRouteImport } from './routes/kapcsolat'
-import { Route as BetekintesRouteImport } from './routes/betekintes'
-import { Route as AszfRouteImport } from './routes/aszf'
-import { Route as AjandekutalvanyokRouteImport } from './routes/ajandekutalvanyok'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AjandekutalvanyokRouteImport } from './routes/ajandekutalvanyok'
+import { Route as AszfRouteImport } from './routes/aszf'
+import { Route as BetekintesRouteImport } from './routes/betekintes'
+import { Route as KapcsolatRouteImport } from './routes/kapcsolat'
+import { Route as MediaRouteImport } from './routes/media'
+import { Route as RolamRouteImport } from './routes/rolam'
 
-const RolamRoute = RolamRouteImport.update({
-  id: '/rolam',
-  path: '/rolam',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MediaRoute = MediaRouteImport.update({
-  id: '/media',
-  path: '/media',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const KapcsolatRoute = KapcsolatRouteImport.update({
-  id: '/kapcsolat',
-  path: '/kapcsolat',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BetekintesRoute = BetekintesRouteImport.update({
-  id: '/betekintes',
-  path: '/betekintes',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AszfRoute = AszfRouteImport.update({
-  id: '/aszf',
-  path: '/aszf',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AjandekutalvanyokRoute = AjandekutalvanyokRouteImport.update({
@@ -47,9 +27,29 @@ const AjandekutalvanyokRoute = AjandekutalvanyokRouteImport.update({
   path: '/ajandekutalvanyok',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const AszfRoute = AszfRouteImport.update({
+  id: '/aszf',
+  path: '/aszf',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BetekintesRoute = BetekintesRouteImport.update({
+  id: '/betekintes',
+  path: '/betekintes',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const KapcsolatRoute = KapcsolatRouteImport.update({
+  id: '/kapcsolat',
+  path: '/kapcsolat',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MediaRoute = MediaRouteImport.update({
+  id: '/media',
+  path: '/media',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RolamRoute = RolamRouteImport.update({
+  id: '/rolam',
+  path: '/rolam',
   getParentRoute: () => rootRouteImport,
 } as any)
 
@@ -123,39 +123,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/rolam': {
-      id: '/rolam'
-      path: '/rolam'
-      fullPath: '/rolam'
-      preLoaderRoute: typeof RolamRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/media': {
-      id: '/media'
-      path: '/media'
-      fullPath: '/media'
-      preLoaderRoute: typeof MediaRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/kapcsolat': {
-      id: '/kapcsolat'
-      path: '/kapcsolat'
-      fullPath: '/kapcsolat'
-      preLoaderRoute: typeof KapcsolatRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/betekintes': {
-      id: '/betekintes'
-      path: '/betekintes'
-      fullPath: '/betekintes'
-      preLoaderRoute: typeof BetekintesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/aszf': {
-      id: '/aszf'
-      path: '/aszf'
-      fullPath: '/aszf'
-      preLoaderRoute: typeof AszfRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/ajandekutalvanyok': {
@@ -165,11 +137,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AjandekutalvanyokRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/aszf': {
+      id: '/aszf'
+      path: '/aszf'
+      fullPath: '/aszf'
+      preLoaderRoute: typeof AszfRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/betekintes': {
+      id: '/betekintes'
+      path: '/betekintes'
+      fullPath: '/betekintes'
+      preLoaderRoute: typeof BetekintesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/kapcsolat': {
+      id: '/kapcsolat'
+      path: '/kapcsolat'
+      fullPath: '/kapcsolat'
+      preLoaderRoute: typeof KapcsolatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/media': {
+      id: '/media'
+      path: '/media'
+      fullPath: '/media'
+      preLoaderRoute: typeof MediaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rolam': {
+      id: '/rolam'
+      path: '/rolam'
+      fullPath: '/rolam'
+      preLoaderRoute: typeof RolamRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
