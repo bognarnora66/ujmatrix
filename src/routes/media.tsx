@@ -25,9 +25,12 @@ export const Route = createFileRoute("/media")({
   component: Media,
 });
 
-const videos = [
-  { id: "3Ccr9Tn-0Ms", title: "Miért gyere el hozzám?" },
-  { id: "zqt3E8OLfTI", title: "ÚjMátrix — bemutatkozás" },
+type Video = { title: string; youtube?: string; src?: string };
+
+const videos: Video[] = [
+  { title: "Miért gyere el hozzám?", youtube: "3Ccr9Tn-0Ms" },
+  { title: "ÚjMátrix — bemutatkozás", youtube: "zqt3E8OLfTI" },
+  { title: "Stresszkezelés — 5 alkalmas program", src: `${mediaBase}stresszkezeles-5-alkalmas.mp4` },
 ];
 
 const tiktoks = [
@@ -59,16 +62,27 @@ function Media() {
       <section className="mx-auto max-w-6xl px-6 pb-12">
         <div className="grid md:grid-cols-2 gap-8">
           {videos.map((v) => (
-            <div key={v.id} className="space-y-4">
+            <div key={v.title} className="space-y-4">
               <div className="relative aspect-video rounded-3xl overflow-hidden border border-border/60 shadow-xl bg-card">
-                <iframe
-                  src={`https://www.youtube.com/embed/${v.id}`}
-                  title={v.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  loading="lazy"
-                  className="absolute inset-0 w-full h-full"
-                />
+                {v.youtube ? (
+                  <iframe
+                    src={`https://www.youtube.com/embed/${v.youtube}`}
+                    title={v.title}
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full"
+                  />
+                ) : (
+                  <video
+                    src={v.src}
+                    title={v.title}
+                    controls
+                    playsInline
+                    preload="metadata"
+                    className="absolute inset-0 w-full h-full object-contain"
+                  />
+                )}
               </div>
               <h2 className="font-display text-2xl text-foreground">{v.title}</h2>
             </div>
