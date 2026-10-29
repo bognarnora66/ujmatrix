@@ -6,6 +6,7 @@ import {
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
+import type { ErrorRouteComponent } from "@tanstack/react-router";
 import Layout from "@/components/Layout";
 import { Toaster } from "@/components/ui/sonner";
 
@@ -126,7 +127,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
-  errorComponent: ErrorComponent,
+  // A plain function is rendered directly by the router at runtime; the
+  // stricter router type only accepts lazy wrappers, so cast explicitly.
+  errorComponent: ErrorComponent as unknown as ErrorRouteComponent,
 });
 
 function RootShell({ children }: { children: React.ReactNode }) {
